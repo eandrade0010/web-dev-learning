@@ -30,4 +30,28 @@ E.g.:
   - *Explicit coercion* is performed by converting beforehand, i.e., using the `Number(..)` function.
   - *Implicit coercion* is done when comparing a string representation of a number to a number. This is where the `==` (loose-equals) operator comes in handy.
 
+### Code comments
+- Useful guidelines:
+  - Too many comments (e.g., one per line) usually indicates poorly written code.
+  - Comments should explain why, not what--or how.
+- Single-line comments: `//`
+- Multiline comments: `/* */`
+
+### Variables
+- JavaScript uses *weak typing* or *dynamic typing*, which means that a variable's type can change throughout a program.
+- Note: `console.log(..)` will coerce a conversion to string
+- Constants should be declared at the top of a program, with underscore spacings.
+  - Newest version of JavaScript (ES6) permits constant declaration using `const`.
+
+### Blocks
+- A *block* is a series of statements grouped together by a curly-brace pair, i.e. `{ .. }`
+  - Note that the block does NOT need to be terminated by a semicolon.
+
+### Conditionals
+(https://github.com/getify/You-Dont-Know-JS/blob/master/up%20%26%20going/ch1.md#conditionals)
+
+
+
+
+
 Left off [here](https://github.com/getify/You-Dont-Know-JS/blob/master/up%20%26%20going/ch1.md#code-comments)
