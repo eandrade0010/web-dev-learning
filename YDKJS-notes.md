@@ -48,10 +48,27 @@ E.g.:
   - Note that the block does NOT need to be terminated by a semicolon.
 
 ### Conditionals
-(https://github.com/getify/You-Dont-Know-JS/blob/master/up%20%26%20going/ch1.md#conditionals)
+- JavaScript will "coerce" many types to `boolean` such as: `0` and `""` to `false` and to `true` otherwise.
 
+### Loops
+- `while` vs `do... while`: the difference lies in the order of conditional testing. For the `while` loop the conditional is tested BEFORE the first iteration.
+  - E.g., if the conditional is false the first iteration will run with the `do...while` loop.
+- The `for` loop has three clauses: the *initialization*, *conditional test*, and *update* clause.
+  - E.g., `for(i=0, i<=9, i++) {..}`
 
+### Functions
 
+### Scope
+- Basically a collection of variables and rules for how those variables are accessed by name. Each function gets it own scope, so each can have the same-named variable.
+- For nested functions, the inner most scope can access its "parent's" scope.
+  - A standalone function is akin to an inner scope, which is why it can access the scope of the program.
 
+### Practice
+With that in mind, let's try practicing some of the concepts we learned here in this chapter. I'll give the "requirements," and you try it first. Then consult the code listing below to see how I approached it.
 
-Left off [here](https://github.com/getify/You-Dont-Know-JS/blob/master/up%20%26%20going/ch1.md#code-comments)
+[] Write a program to calculate the total price of your phone purchase. You will keep purchasing phones (hint: loop!) until you run out of money in your bank account. You'll also buy accessories for each phone as long as your purchase amount is below your mental spending threshold.
+[] After you've calculated your purchase amount, add in the tax, then print out the calculated purchase amount, properly formatted.
+[] Finally, check the amount against your bank account balance to see if you can afford it or not.
+[] You should set up some constants for the "tax rate," "phone price," "accessory price," and "spending threshold," as well as a variable for your "bank account balance.""
+You should define functions for calculating the tax and for formatting the price with a "$" and rounding to two decimal places.
+[] Bonus Challenge: Try to incorporate input into this program, perhaps with the prompt(..) covered in "Input" earlier. You may prompt the user for their bank account balance, for example. Have fun and be creative!
