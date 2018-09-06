@@ -127,3 +127,4 @@ Truthy:
 NOTE: The preceding only apply with coercion.
 
 #### Equality
+(https://github.com/getify/You-Dont-Know-JS/blob/master/up%20%26%20going/ch2.md#equality)
