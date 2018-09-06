@@ -109,3 +109,21 @@ var b = a*3;
 
 #### Truthy and Falsy
 (https://github.com/getify/You-Dont-Know-JS/blob/master/up%20%26%20going/ch2.md#truthy--falsy)
+
+Falsy:
+- `""`
+- `0`, `-0`, `NaN`
+- `null`, `undefined`
+- `false`
+
+Truthy:
+- `"..."`
+- `42`
+- `true`
+- `[ ]`, arrays
+- `{ }`, objects
+- `function foo()`
+
+NOTE: The preceding only apply with coercion.
+
+#### Equality
