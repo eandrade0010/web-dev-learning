@@ -127,4 +127,27 @@ Truthy:
 NOTE: The preceding only apply with coercion.
 
 #### Equality
-(https://github.com/getify/You-Dont-Know-JS/blob/master/up%20%26%20going/ch2.md#equality)
+- Non-equality NOT equivalent to inequality
+  - `==` checks for value equality with coercion allowed, and `===` does not allow coercion, hence its moniker "strict equality"--e.g., `42 === "42"` returns `false`.
+- Sometimes a certain coercion will take precedent over the other and this COULD matter depending on the application.
+  - Many see `===` as a more predictable comparison
+- When to use `===`:
+  - If either value can is `true` or `false`
+  - If either value is a falsy expression, i.e. `0`, `""`, `[]`.
+- When comparing objects, the comparison is actually done on the reference and NOT on the values.
+  - E.g.
+    ```javascript
+    var a = [1, 2, 3];
+    var b = [1, 2, 3];
+    var c = "1,2,3";
+    ```
+    By default, `array` objects are coerced to `string` types. Hence
+    ```javascript
+    a == c; // true
+    b == c; // true
+    a == b; // false
+    ```
+    Note that the last comparison is validating if the two references are made to the same values!
+
+#### Inequality
+(https://github.com/getify/You-Dont-Know-JS/blob/master/up%20%26%20going/ch2.md#inequality)
