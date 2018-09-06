@@ -67,4 +67,45 @@ E.g.:
 - [X] Done
 
 ## Chapter 2
-(https://github.com/getify/You-Dont-Know-JS/blob/master/up%20%26%20going/ch2.md)
+### Values and Types
+- Builtin types: `string`, `number`, `boolean`, `null` or `undefined`, `object`, `symbol`(new to ES6).
+- The `typeof ..` operator will define the type of value
+  - Note: `typeof` is examining the value currently being stored in a variable.
+- The `undefined` type can be evoked by not defining a variable, a `void` function, or a function that does not return anything.
+
+### Objects
+- Define objects as follows:
+```javascript
+var obj = {
+  a: ..,
+  b: ..,
+  c: ..,
+};
+```
+- Properties of objects can be accessed using *dot* notation or *bracket* notation (*dot* notation is preferred).
+- Arrays and functions are subtypes of `object` type
+
+#### Arrays
+- Arrays are defined as:
+```javascript
+var arr = [
+  ..,
+  ..,
+  ..
+];
+```
+#### Functions
+
+### Built-In Type Methods
+- When you use a primitive vaue as an `object`, JS accesses its object wrapper counterpart. E.g. `string` wrapped by `String`
+
+### Comparing Values
+#### Coercion
+- An example of implicit coercion:
+```javscript
+var a = "42";
+var b = a*3;
+```
+
+#### Truthy and Falsy
+(https://github.com/getify/You-Dont-Know-JS/blob/master/up%20%26%20going/ch2.md#truthy--falsy)
