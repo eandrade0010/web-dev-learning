@@ -1,3 +1,4 @@
+# Book 1: Up and Going
 ## Foreword
 ## Preface
 - It is primarily because JavaScript can be used without a firm understanding that a profound understanding of the language is elusive.
@@ -150,4 +151,110 @@ NOTE: The preceding only apply with coercion.
     Note that the last comparison is validating if the two references are made to the same values!
 
 #### Inequality
-(https://github.com/getify/You-Dont-Know-JS/blob/master/up%20%26%20going/ch2.md#inequality)
+- The `<`, `>`, `<=`, and `>=` are considered relational comparisons.
+- Strings can be compared for inequality using alphabetical rules.
+  - If one or both of the values not a string, values are coerced to numbers.
+  - Will fail if certain types cannot be coerced to a number
+
+### Variables
+- Identifiers must start with `[az]`, `[AZ]`, `$`, or `_`, only after can `[09]` be used.
+- Certain words CANT be used as variable names, but can be used as property names.
+  - E.g., `for`, `in`, `if`, `null`, `true`, `false`
+
+#### Function Scopes
+- Use `var` for any variable in a scope
+
+##### Hoisting
+- A `var` can be "hoisted", or, moved to the top of its enclosing scope.
+- Much more common and accepted to use hoisted function declarations, namely, calling a function or variable BEFORE its formal declaration.
+
+##### Nested Scopes
+- A `ReferenceError` is thrown if you try to access a variable outside of a scope.
+- If you do not declare a variable, any setting of a variable will created a variable in the top-level global scope (NOT GOOD!!!!!).
+  - ALWAYS DECLARE variables
+- ES6 permits declaring variables to individual blocks within a function using the `let` keyword.
+  - E.g,
+  ```javascript
+  function foo() {
+    if (..) {
+      let b = ..;
+      while (..) {
+        let c = ;
+      }
+    }
+  }
+```
+
+### Conditionals
+- JavaScript uses `if`, `else if`, `else`
+- Switching is available, in the following form:
+```javascript
+switch (a) {
+  case 2:
+    // something
+    break;
+  case 10:
+    // do something
+    break;
+  default:
+    // fallback
+}
+```
+- Note: the break is used because the condition will fall through.
+- JavaScript also uses a "conditional operator", or, "ternary operator". It is a concise `if...else` statement:
+`var b = (a > 41 ) ? "hello" : "world";`
+  - `b` will be set to ``"hello"`` if the condition is met, or `"world"` if not.
+
+### Strict Mode
+- You can specify the use of strict mode within a scope using the `"use strict";` declaration.
+- If code fails in this mode, there is most likely something wrong with the program
+
+### Functions as Values
+- A variable can be set as a function, whether it is anonymous--i.e., `function() {};`--or it has a name--`function bar() {};`.
+
+#### Immediately Invoked Function Expressions (IIFEs)
+- This a way to define a function and call it right away.
+  - E.g.,
+  ```javascript
+  (function foo() {..})();
+  ```
+
+#### Closure
+- We can return an inner function within an outer one. Then run the function being referenced.
+
+##### Modules
+- Closures are most commonly used for the module pattern. Allows you to define private implementation.
+
+### `this` Identifier
+- If a function has the `this` identifier, it is usually pointing to an `object`.
+- Use of `this` depends of how the function was called, i.e., what it is pointing to.
+
+### Prototypes
+- Prototyping is linking to an object from another. The new object is created and linked as follows:
+```javascript
+var foo = {
+  a: ..;
+};
+var bar = Object.create( foo );
+bar.b = "Hello World";
+bar.a; // ..
+```
+
+### Old and New
+How to "bring" newer features of JS to older browsers??
+
+#### Polyfilling
+- Refers to taking the definition of a newer feature and producing a piece of code that's equivalent to the behavior!
+
+#### Transpiling
+- Refers to converting newer code into older code equivalents.
+- Transpiling = transforming + compiling
+- Some great transpilers:
+  - Babel: ES6+ to ES5
+  - Traceur: ES6, ES7, + into ES5
+
+#### Non-JavaScript
+- Several mechanisms are NOT provided by the JS engine and are actually handled by the browser.
+  - E.g.: `alert(..)`, `console.log(..)`. These mechanisms are hooked to the developer tools by the browser!
+
+## Chapter 2
