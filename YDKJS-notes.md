@@ -257,4 +257,13 @@ How to "bring" newer features of JS to older browsers??
 - Several mechanisms are NOT provided by the JS engine and are actually handled by the browser.
   - E.g.: `alert(..)`, `console.log(..)`. These mechanisms are hooked to the developer tools by the browser!
 
-## Chapter 2
+## Chapter 3
+- Provide a summary of what is to follow
+
+### Scope and Closures
+- JS engine compiles code right before (and sometimes during!?) execution.
+- Closure is perhaps the most important concept in JS
+  - Prioritize understanding of module pattern
+
+### `this` and Object Prototypes
+(https://github.com/getify/You-Dont-Know-JS/blob/master/up%20%26%20going/ch3.md#this--object-prototypes)
