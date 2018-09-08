@@ -293,5 +293,61 @@ How to "bring" newer features of JS to older browsers??
 - Traditional compiled-language process: source code undergoes the following three steps--i.e., compilation.
   1. Tokenizing/Lexing: the fragmented chunks are called tokens. E.g., `var a = 2;` would be broken up as `var`, `a`, `=`, and `2`. Lexing is focused on determining whether a chunk is a distinct token are part of another.
   2. Parsing: taking stream of tokens and turning it into a tree of nested elements--called "AST" or the Abstract Syntax Tree.
-    - E.g.,
-    (https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20%26%20closures/ch1.md#compiler-theory)
+    - E.g., tree for `var a = 2;` might start with a `VariableDeclaration` node and a child node called `Identifier` and another child called `AssignmentExpression` which has its own child `NumericLiteral`
+  3. Code-generation:
+
+### Understanding Scope
+- There are several players in compilation
+  1. Engine: responsible for compilation and execution
+  2. Compiler: parses and generates code
+  3. Scope: collects and maintains a look-up list of all declared identifiers
+
+#### Back and Forth
+- In approaching `var a = 2;`:
+  - Compiler handles lexing to break down the statement into tokens, then parsing it into a tree. Compiler then handles code-generation as follows:
+    1. Compiler asks scope to see if variable `a` exists for that scope collection. If not, it asks Scope to declare it.
+    2. Compiler then produces code for engine to later execute. Engine will ask scope if the variable is accessible within the current scope collection. If not it will look elsewhere.
+  - In summary, compiler declares a variable if not previously declared and engine will look up the variable.
+
+#### Compiler Speak
+- Two types of look-ups by the engine: "LHS" or "RHS", which refers to the side of assignment operation.
+- You can think of RHS as "go get the value of"
+- In contrast, `a = 2;` is a LHS reference because the value is not important, we just need to find the variable as the target for the `= 2` assignment operation.
+- "Who's the target of the assignment (LHS)" and "who's the source of the assignment (RHS)".
+
+#### Engine/Scope Conversation
+
+#### Quiz
+- Consider the function:
+```javascript
+function foo(a) {
+	var b = a;
+	return a + b;
+}
+
+var c = foo( 2 );
+```
+- RHS:
+  1. `foo( )` is asking for the value of foo
+  2 & 3. `a + b` is looking for `a` and `b`
+  4. `a` in `= a` is looking for source of assignment
+- LHS:
+  1. `..( 2 )` is implicitly assigning the value to `a`.
+  2. `var b` is looking for b
+  3. `var c` is looking for c
+
+### Nested Scope
+- The engine will look for a reference from inside-out through scope
+
+#### Building on metaphors
+- Building is hierarchy of scopes, with each floor up being an outer scope
+
+### Errors
+- In not in "Strict-mode" and the variable can't be found within any scope using LHS then the global scope will create one.
+- `ReferenceError` is scope related and `TypeError` designates that scope resolution was successful and an impossible or illegal action was attempted with the result.
+
+### Review
+- RHS: retrieving the value of a variable
+
+## Chapter 2: Lexical Scope
+(https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20%26%20closures/ch2.md#chapter-2-lexical-scope)
