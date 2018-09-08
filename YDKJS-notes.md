@@ -266,4 +266,32 @@ How to "bring" newer features of JS to older browsers??
   - Prioritize understanding of module pattern
 
 ### `this` and Object Prototypes
-(https://github.com/getify/You-Dont-Know-JS/blob/master/up%20%26%20going/ch3.md#this--object-prototypes)
+- `this` keyword is NOT bound to the function in which it is executed. It is dynamically bound based on HOW it is executed.
+- Object prototype system works through "behavior delegation".
+
+### Types & Grammar
+
+### Async & Performance
+- Callbacks are the primary method of enabling asynchrony. HOWEVER, it has deficiencies, namely:
+  1. Inversion of Control trust loss
+  2. Lack of linear reason-ability
+- Attempts to solve issue using promises and generators
+  - Promises are time-independent wrappers for a "future value". Solves IoC trust issues by routing callbacks effectively
+  - Generators can be paused at yield points and resumed asynchronously later.
+
+### ES6 & Beyond
+
+# Book 2: Scope and Closures
+## Foreword
+## Chapter 1: What is Scope?
+- A program's *state* is its ability to store values and access values from variables
+- Where are variables stored?!
+- Scope is the set of rules for storing variables.
+
+### Compiler Theory
+- JavaScript is typically grouped with "dynamic" or "interpreted" languages but it is a compiled language.
+- Traditional compiled-language process: source code undergoes the following three steps--i.e., compilation.
+  1. Tokenizing/Lexing: the fragmented chunks are called tokens. E.g., `var a = 2;` would be broken up as `var`, `a`, `=`, and `2`. Lexing is focused on determining whether a chunk is a distinct token are part of another.
+  2. Parsing: taking stream of tokens and turning it into a tree of nested elements--called "AST" or the Abstract Syntax Tree.
+    - E.g.,
+    (https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20%26%20closures/ch1.md#compiler-theory)
