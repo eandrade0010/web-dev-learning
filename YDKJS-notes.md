@@ -432,4 +432,55 @@ will run the string and create a variable b in `foo`'s scope.
 - Scope created from the object only exists in the `with` statement and NOT the enclosing scope
 
 #### `try`/`catch`
-(https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20%26%20closures/ch3.md#trycatch)
+- JavaScript in ES3 specified variable declaration in the `catch` clause to be block-scoped to that block.
+
+#### `let`
+- Introduced with ES6 and is another way to declare variables
+- The `let` keyword attaches the variable declaration to the scope of whatever block (e.g., `{ .. }`) it's contained in.
+- We can create explicit blocks for block-scoping to know WHICH blocks have variables scoped to them.
+- Declarations with the `let` keyword will NOT hoist to the entire scope of the block they appear in. They do not exist until the declaration statement.
+
+#### Garbage Collection
+- Block scoping is useful for closures and garbage collection to reclaim memory.
+- By declaring explicit blocks for variables, you can "toss" aside data afterwards
+
+#### `let` Loops
+- A variable `i` for instance will be bound to the block; and REBOUND at each iteration with its last value.
+
+#### `const`
+- Also creates a block-scoped variable with a fixed value.
+
+## Chapter 4: Hoisting
+
+### Chicken or the Egg?
+- Does the declaration or the assignment come first?
+
+### The Compiler Strikes Again
+- Part of the compilation phase is to find and associate all declarations with appropriate scopes.
+  - Both variables and functions are processed first, before execution
+- `var a = 2` is actually thought of as two statements: `var a` and `a = 2;`
+  - The first statement is the declaration and is processed during compilation and the assignment during execution. They are "hoisted" in their order.
+- Hoisting is performed within scopes! Namely, a variable declaration in a scope will be performed first **within** that scope.
+
+### Functions First
+- Functions are always hoisted first!
+
+## Chapter 5: Scope Closure
+
+### Enlightenment
+- Closures happen as a result of writing code that relies on lexical scope.
+
+### Nitty Gritty
+> Closure is when a function is able to remember and access its lexical scope even when the function is executing outside its lexical scope
+
+- Closure lets the function continue to access the lexical scope it was defined in at author time.
+  - This is how you can return functions, and run them later while still retaining the lexical scope.
+
+### Now I can See
+- For IIFE patterns (functions simultaneously declared and executed) are not executed outside of their lexical scope. It's invoked right in the same scope as it was declared (its enclosing scope).
+
+### Loops + Closure
+- The `let` declaration hijacks a block and declares a variable right there in the block. Using the `let` in a loop iteration will declare the variable for each declaration so that closure can close over its own separate scope!
+
+### Modules
+(https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20%26%20closures/ch5.md#modules)
