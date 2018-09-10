@@ -350,4 +350,86 @@ var c = foo( 2 );
 - RHS: retrieving the value of a variable
 
 ## Chapter 2: Lexical Scope
-(https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20%26%20closures/ch2.md#chapter-2-lexical-scope)
+- The most commonly used is lexical scope
+
+### Lex-time
+- Lexing (or tokenizing) is the first traditional phase of a standard language compiler. It assigns semantic meaning to tokens (chunks).
+
+#### Look-ups
+- The inner scope's variable takes precedence! Works upward until first math.
+- You can reference global variables as properties of the global object. E.g., `window` in browsers: `window.a`.
+  - Helps access a global variable that is being shadowed
+
+### Cheating Lexical
+- Leads to poor performance
+- Can be performed using two mechanisms
+
+#### `eval`
+- Takes a string as an argument and and treats it as if it had been authored code.
+  - Programmatically generate code inside the authored code and run it
+- Example:
+```javascript
+function foo(str, a) {
+  eval(str);
+  ..
+}
+
+foo ("var b=3;", 1);
+```
+will run the string and create a variable b in `foo`'s scope.
+- In strict mode (`"use strict";`) the `eval` will create its own scope and not modify the enclosing scope
+- Degradates performance!
+
+#### `with`
+- Takes an object with zero or more properties and treats the object as if it is a wholly separate lexical scope.
+- Objects scopes then have identifiers
+
+#### Performance
+- During the optimization, the engine seeks to pre-determine where all variable and function declarations are. When finding a `eval` or `with` they now assume invalid assumptions, leading it to slow down.
+
+### Review
+- Lexing allows engine to be able to know where and how all identifiers are declared, and to predict how they will be looked up during execution.
+- `eval` modifies existing leixcal scope at runtime and `with` will create a new scope where object's properties are scoped identifiers.
+
+## Chapter 3: Function vs Block Scope
+- Can other structures create "bubbles of scope?"
+
+### Scope from Functions
+
+### Hiding in Plain Scope
+- Rather than declare a function, THEN add code. Think of a function as a wrapper, to "hide" variables and functions.
+  - Complies with the principle that you should only expose what is minimally necessary and hide everything else.
+
+#### Collision Avoidance
+- You can use the same identifiers by declaring the variable within a nested scope!
+
+##### Global Namespaces
+- Objects can be used as namespaces for libraries so that no variable collision occurs! This is done by making them properties of the objects.
+
+##### Module Management
+
+### Functions as Scopes
+- By defining and calling a function you are treating it as a function expression rather than a standard declaration...?
+  - So the identifier is only found within its block, not in the outer scope.
+
+#### Anonymous vs. Named
+- Function expressions can be anonymous BUT function declarations cannot omit the name.
+- Drawbacks to anonymous functions:
+  1. No useful name, making debugging difficult
+  2. Self-referencing is an issue
+  3. Name could help describe code
+- Inline function expressions, i.e., giving the function expression a name
+
+#### Invoking Function Expressions Immediately
+- Enclosing the function with a `()` makes the function an expression with the tail `()` executing it immediately.
+- Don't need names, but good practice!
+
+### Blocks as Scopes
+- Useful to use a variable only within a certain block!
+- JavaScript has no facility for block scope but, you can use...
+
+#### `with`
+- Scope created from the object only exists in the `with` statement and NOT the enclosing scope
+
+#### `try`/`catch`
+(https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20%26%20closures/ch3.md#trycatch)
