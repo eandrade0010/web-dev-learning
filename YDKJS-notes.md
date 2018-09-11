@@ -483,4 +483,57 @@ will run the string and create a variable b in `foo`'s scope.
 - The `let` declaration hijacks a block and declares a variable right there in the block. Using the `let` in a loop iteration will declare the variable for each declaration so that closure can close over its own separate scope!
 
 ### Modules
-(https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20%26%20closures/ch5.md#modules)
+- A module is a function which houses functions that have closures over the scope of the module; then they returns and object with properties as these functions!
+- Keeps the inner variables that these functions have from closure private.
+- Two requirements for the module pattern to be exercised:
+  1. Must be an outer enclosing function that is invoked at least once (to create instances)
+  2. Enclosing function must return back at least one inner function so that this function have closure over the private scope
+- Modules can be declared and executed at once by writing them as an IIFE.
+
+#### Modern Modules
+
+#### Future Modules`
+- ES6 treats a file as a separate module. Each module can both import other modules or specific API members, and export their own public API members.
+- NOTE: you can actually modify a module's API during rum-time
+- ES6 modules APIs are static. The compiler will check during compilation for a reference to a member of an import module API. If it doesn't exist it will throw an error.
+- There is no "inline" format for ES6 modules. They MUST be defined in separate files (one per module).
+- `import` imports members of a module's api into the current scope, each to a bound variable. E.g., `import hello from "bar";`
+- `module` will import an entire module API
+- `export` will export an identifier (variable, function) to the public API for the current module
+
+### Review
+- Closure is when a function can remember and access its lexical scope even when it's invoked outside its lexical scope!
+- Modules require:
+  1. An outer wrapping function to create the enclosing scope
+  2. A return value of the wrapping function must include reference to at least one inner function that has closure over the private inner scope of the wrapper.
+
+# Book 3: `this` and Object Prototypes
+## Chapter 1: `this` or That?
+- The `this` keyword is a special identifier keyword automatically defined in the scope of every function
+
+### Why `this`
+- Provides a more elegant way of implicitly "passing along" an object reference!
+
+### Confusions
+
+#### Itself
+- Misconception that `this` refers to the function itself.
+- You can refer to the function itself within it as an identifier. Anonymous functions can't do this
+  - Avoid anonymous functions, especially if they need to reference themselves
+
+#### Its Scope
+- Another misconception is that `this` refers to the function's scope. The answer really is ambiguous
+- There is no bridge between lexical scopes of separate functions! `this` can't do it!
+
+### What's `this`?
+- `this` is a runtime binding. Has nothing to do with where a function is declared but in the manner whereby it is called.
+- When a function is invoked an activation record or execution context is created.
+  - I.e., information about where the function was called from (call-stack) how it was invoked, what parameters were passed, etc.
+  - A property of record is `this` which is used for the duration of the function's execution.
+
+### Review
+- `this` is neither a reference to the function itself or the function's lexical scope
+- it is a binding made when a function is called and what it references is dictated by the call-site where the function was called
+
+## Chapter 2: `this` All Makes Sense Now!
+(https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch2.md)
