@@ -536,4 +536,127 @@ will run the string and create a variable b in `foo`'s scope.
 - it is a binding made when a function is called and what it references is dictated by the call-site where the function was called
 
 ## Chapter 2: `this` All Makes Sense Now!
-(https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch2.md)
+- Learned that `this` is a binding made for each function invocation based on its call-site (how the function is called)
+
+### Call-site
+- Call-site: the location in code where a function is called (NOT where it is declared)
+- Might be obscure, so we think about the call-stack(stack of functions called to get us to the current moment in execution)
+  - Call-site is in invocation before currently executing function
+- Call-stack can be list of functions executed to then lead to current invocation
+
+### Nothing But Rules
+- There are 4 rules to a call-site
+
+#### Default Binding
+- Comes from standalone function invocation
+- Remember that variables declared in global scope is global object
+- If you invoke a function within the global scope, `this` will point to the global scope!
+  - This default binding only occurs in non strict mode!
+
+#### Implicit Binding
+- Does the call-site have a context object i.e., an owning or containing object.
+- Only the top/last level of an object property reference chain matters to the call-site
+  - E.g., `obj.obj2.foo();` will link to `obj2` with `this`
+
+##### Implicitly Lost
+- Sometimes the binding falls back to the default (global or `undefined`).
+- Default bindings apply to plain, un-decorated calls
+- Also happens when passing a callback function
+  - Parameter passing is just implicit assignment
+
+#### Explicit Binding
+- You can force a function to use a particular object for the `this` binding
+- All functions have utilities, `call(..)` and `apply(..)` being available methods.
+  - Both take an object to use for the `this` binding and then invoke that function with the `this` specified.
+- If you pass a simple primitive value (`string`, `boolean` or `number`) then the value is wrapped in its object form (`new String(..)`, `new Boolean(..)`) which is often referred to as boxing.
+- Does not offer any solution to a function possibly losing its intended `this` binding
+
+##### Hard Binding
+- Since hard binding is such a common patter, it is a built-in utility
+  - E.g., `function.bind(obj)` will bind the `obj` to the `function` so that `obj` is referenced by `this` in the function.
+
+##### API Call "Contexts"
+- Many new built-in functions provide an optional parameter called "context" which obviates having to use
+
+#### `new` Binding
+- In a traditional class-oriented language, a constructor is a special method attached to a class. Upon instantiation the constructor is called
+  - E.g., `something = new MyClass()`
+- In JS, constructors are functions that happen to be called with the `new` operator. Not attached to classes and are not instantiating a class. They are functions hijacked by invocation of `new`
+- There is no constructor functions, but construction calls of functions.
+- When a function is invoked with `new`:
+  1. a brand new object is created
+  2. newly constructed object is `[[Prototype]]` linked
+  3. Newly constructed object is set as the `this` binding for that function call
+  4. Unless the function returns its own alternate object, the `new` invoked function will automatically return the newly constructed object
+- Example:
+```javascript
+function foo(a) {
+  this.a = a;
+}
+
+var bar = new foo(2);
+console.log(bar.a);
+```
+
+### Everything in Order
+- Precedence of implicit or explicit binding?
+  - From testing, explicit takes precedence
+- New binding is more precedent than implicit binding, however, does it take precedence over explicit binding!?
+- `new` and `call`/`apply` cannot be used together.
+- Hard binding (form of explicit binding) is more precedent than new binding.
+  - Looks like `new` will override the hard bound
+- Utility of overriding hard binding:
+
+#### Determining `this`
+Summary of rules:
+1. Is the function called with `new` then `this` references the newly constructed object.
+2. Is the function called with `call` or `apply` (explicit binding), even hidden inside a hard finding? If so `this` is the explicitly specified object
+  - `var bar = foo.call( obj2 )`
+3. Is the function called with a context, `this` is that context object.
+  - `var bar = foo.call( obj2) `
+4. Otherwise `this` defaults to `undefined` in `strict mode` or `global object`.
+  - `var bar = foo()`
+
+### Binding exceptions
+
+#### Ignored `this`
+- If you pass `null` or `undefined` in the `call`, `apply`, or `bind`, the binding defaults
+- Note: curry parameters (pre-set values)
+- Passing `null` might lead to problems with third-party library functions so the `this` reference will lead to the `global` object?
+
+#### Safer `this`
+- Passing a setup object, one that won't create any problems.
+  - Call this a "DMZ" (de-militarized zone) object which is a completely empty and non delegated object.
+    - This will insulate the program's `global` object
+- The empty object is created using `Object.create(null)` and because it is not delegating to `Object.prototype` it is more empty than using `{ }`
+
+#### Indirection
+- This happens when you create "indirect references" to functions, which leads to the default binding rule.
+  - E.g.: `p.foo = o.foo` would be referencing the underlying function object so it will be calling `foo` and NOT `p.foo()` or `o.foo()` --> default binding
+
+#### Softening Binding
+- The impetus is the need for flexibility, i.e, later binding, without default binding.
+- The `softBind(obj)` can be manually `this`-bound but will fall back to the default binding (defined by the first invocation of `function.softBind(obj)`).
+
+### Lexical `this`
+- An arrow function (introduced by ES6) does NOT use the rules
+- Arrow-functions are signified by the `=>` operator.
+  - In these functions, `this` will adopt the `this` binding from the enclosing scope
+- Can't be overridden (even with `new`)
+- If you find yourself writing `this`-style code but use `self=this` or arrow-function tricks, try:
+  1. Using only lexical scope, namely, avoid `this`-style coding
+  2. Embrace `this` completely and employ its mechanisms: `bind(..)`, etc.
+  - Both can be used, BUT within the same function and should not be mixed (NOT CLEVER).
+
+### Review
+- Rules with order of precedence, `this` refers to:
+  1. newly constructed object if called with `new`
+  2. object specified by `call` or `apply`
+  3. context object if the context object owns the call
+  4 `undefined` in `strict mode` or global object for default
+- Using a "DMZ" object created using `Object.create(null)` is a good placeholder that insulates the `global` object
+- ES6 arrow functions use lexical scoping for `this` binding. I.e., they adopt the `this` binding from its enclosing function call.
+  - Replacement of `self=this`
+
+## Chapter 3: objects
+(https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch3.md).
