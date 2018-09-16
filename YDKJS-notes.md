@@ -659,4 +659,108 @@ Summary of rules:
   - Replacement of `self=this`
 
 ## Chapter 3: objects
-(https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch3.md).
+- What are objects?
+
+### Syntax
+- Objects come in two forms
+  1. Declarative (literal) form
+    - ```javascript
+    var myObj = {
+      key: value
+    };
+    ```
+  2. Constructed form
+    - ```javascript
+    var myObj = new Object();
+    myObj.key = value;
+    ```
+  - The first form is more common
+
+### Type
+- Objects are one of the 6 primary ("language") types in JS, along with: 1. `string`, 2. `number`, 3. `boolean`, 4. `null`, 5. `undefined`, and 6. `object`
+- The other 5 are not objects
+- "Everything in JS is [not] an object". There are a few special object sub-types that are referred to as complex primitives
+  - `function` is a subtype of object (a "callable object").
+    - said to be first class
+  - arrays are also objects
+
+#### Built-in Objects
+- These include: `String`, `Number`, `Boolean`, `Object`, `Function`, `Array`, `Date`, `RegExp`, and `Error
+  - Actually built-in functions that can be used as constructors, with `new`
+- JS will coerce a primitive to its object type to perform necessary operations.
+
+### Contents
+- Contents of an objects are stored at specific properties, i.e., locations
+- These values are NOT stored inside the object, only their property names are which as pointers (references) to where the values are stored.
+- Two ways to access the value at the location (property) of the object, using the .operator or the `[ ]` operator. The latter is referred to as "key" access and is akin to dictionary implementation.
+  - The `.` operator requires an `Identifier` compatible property name whereas the latter operator can use any string as the name for a property even if it is not a valid `Identifier` property name
+  - Because the `[ ]` operator uses a string's value to specify the location, the program can programmatically build up the value of the string.
+    - E.g. ```javascript
+    var myObject = {
+      a: 2
+    };
+    b = "a";
+    console.log(myObject[b]); // 2
+    ```
+  - In objects property names are always strings
+
+#### Computed Property Names
+- ES6 adds the ability to specify an expression surrounded by a `[ ]` pair in the key-name position of an object-literal declaration
+  - E.g., `var myObject = { [prefix+"bar"]: "hello"};`
+
+#### Property vs Method
+- Functions that belong to objects are methods
+- Some functions have `this` references in them and these MIGHT refer to the object but because `this` is dynamically bound at run-time, at the call-site, its relationship to the object is indirect
+- One might say that a function becomes a method during run-time just for that invocation.
+  - Function and method are interchangeable
+
+#### Arrays
+- Also use the `[ ]` access form, but they assume numeric indexing.
+- Because arrays are objects, they can also own properties.
+  - Does not change `length` of array
+- If you try to  add a property to an array but the property name looks like a number, it will end up as a numeric index
+
+#### Duplicating objects
+- The difference between shallow vs. deep copies. The former duplicates references and the latter duplicates that being referenced
+- A subset solution is objects which are JSON-safe--i.e., they can be serialized to a JSON string and then re-parsed to an object with the same structure and values
+- Shallow copies are straight forward
+  - ES6 defined `Object.assign(..)` for this task. It takes a target object as its first parameter and one or some source objects as subsequent parameters.
+  - This is purely `=` style assignment, so any special characteristics of a property on a source object are not preserved
+
+#### Property Descriptors
+- As of ES5 all properties are described in terms of a property descriptor
+- Can be observed by using `Object.getOwnPropertyDescriptor( myObject, property);`
+- It is also possible to define the descriptors or modify existing ones if they are configurable using `Object.defineProperty( myObject, property);`
+
+##### Writable
+- `TypeError` will tell us we cannot change a non-writable property
+
+##### configurable
+- Means we can modify descriptor definitions
+- Changing `configurable` to `false` is a one-way street when using the `Object.defineProperty( myObject, myProperty);`
+- There IS an exception: even if the property's `configurable` definition is `false`, `writable` can be changed from `true` to `false`; BUT not back to `true` if `false`
+- `delete` also does not work if `configurable` is `false`
+- if an object property is the last reference to some object or function, `delete` will remove the reference, and then the unreferenced object or function can be garbage collected
+
+##### Enumerable
+- Designates whether or not a certain object-property will show up in enumerations
+
+#### Immutability
+- All the approaches create shallow immutability, i.e., they affect only the object and its property characteristics. If an object has a reference to another object, the contents of that object remain mutable.
+- May not be desirable to seal or freeze all objects
+
+##### Object Constant
+- Combining `writable: false` and `configurable: false`
+
+##### Prevent Extensions
+- Using `Object.preventExtensions` will prevent any properties from being appended to an object
+
+##### Seal
+- `Object.seal(..)` creates an object while preventing extension and disallowing configuration
+
+##### Freeze
+- `Object.freeze(..)` seals an object but also makes `writable: false`
+- Still does not affect objects being referenced to within the object's properties
+
+#### `[[Get]]`
+(https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch3.md#get)
