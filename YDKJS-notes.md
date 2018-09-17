@@ -763,4 +763,29 @@ Summary of rules:
 - Still does not affect objects being referenced to within the object's properties
 
 #### `[[Get]]`
-(https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch3.md#get)
+- Accessing a property via the identifier is not as simple
+- the `[[Get]]` operator (sort of like a function call) is called on the object and FIRST inspects the object for that property. If it does not find the property it will do something next, but the result will be `undefined`.
+- Can't tell if a property exists and holds the explicit value `undefined`
+
+#### `[[Put]]`
+- If a property is already present, the operation will check:
+  1. Is property an accessor descriptor? If so call the setter
+  2. Is property a data descriptor with `writable:false`? If in non-strict mode, silently fail or throw `TypeError`
+  3. Otherwise set value to existing property
+
+#### Getters & Setters
+- ES5 introduced a way to override part of the aforementioned default operations
+- Getters are properties which call a hidden function to retrieve a value and setters are properties which call a hidden function to set a value
+- If a property has a getter and/or setter it becomes a "accessor descriptor" as opposed to "data descriptor"
+- A getter can be defined in object-literal syntax with `get a() { .. };` or through explicit definition with `defineProperty()`. Both depend on a hidden functions
+
+#### Existence
+- You can ask if a certain property exists for an object wWITHOUT asking for the property's value: `("a" in myObject)` will return a boolean.
+  - `myObject.hasOwnProperty("a");` may also be used. This one will not consult the `[[Prototype]]` chain
+- Because sometimes it is possible to create an object unlinked to `Object.prototype` the `myObject.hasOwnProperty()` would fail
+  - More robust to use `Object.prototype.hasOwnProperty.call(myObject, "a")` which uses explicit binding against the object
+
+##### Enumeration
+- Enumerable means that the property will be included if properties are iterated through
+- Keep in mind that `for..in` loops will loop through any enumerable properties that might exist for an array--better to use `for` loops with numeric index iteration
+(https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch3.md#enumeration)
