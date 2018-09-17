@@ -788,4 +788,78 @@ Summary of rules:
 ##### Enumeration
 - Enumerable means that the property will be included if properties are iterated through
 - Keep in mind that `for..in` loops will loop through any enumerable properties that might exist for an array--better to use `for` loops with numeric index iteration
-(https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch3.md#enumeration)
+- Enumeratibility of properties may also be learned using `Object.propertyIsEnumberable(..)` which tests whether the given name exists directly on the object is enumerable; while `Object.keys(..)` returns an array of all enumerable properties. Lastly `Object.getOwnPropertyNames(..)` returns an array of ALL property names
+  - `Object.keys(..)` and `Object.getOwnPropertyNames(..)` inspect only the object and do NOT consult the `[[Prototype]]` chain
+  - Currently no way for capturing ALL properties comprising the `[[Prototype]]` chain, i.e., properties that would be gleaned from the `for..in` loop
+
+### Iteration
+- Iteration can be done using a `for` loop for numerically-indexed arrays, like so:
+```javascript
+var myArray = [1, 2, 3];
+for (var i=0; i < myArray.length; i++) {
+  console.log(myArray[i]);
+}
+```
+- There are also several array helpers made available post-ES5, these are:
+  - `forEach(..)`
+  - `every(..)`
+  - `some(..)`
+- `forEach(..)` will iterate over all values in the array while ignoring any callback return values
+- `every(..)` will keep going until the end or the callback returns a falsy value
+- `some(..)` keeps going until the end or callback returns a truthy value
+- The former act like a `break` statement inside a normal `for` loop
+- Keep in mind that there is no standard order of iterating over object properties using the `for..in` loop
+- If you want to iterate over the values directly in lieu of the array indices, ES6 added a `for..of` loop
+```javascript
+var myArray = [1, 2, 3];
+
+for (var v of myArray) {
+  console.log(v);
+}
+```
+  - This loop asks for an iterator object (from the default internal function `@@iterator`) of the thing to be iterated, and the loop iterates over successive return values using the object's `next()` method.
+    - Arrays have a built-in `@@iterator`
+    - Not the iterator itself but a function that returns the iterator
+    - regular objects DO NOT HAVE A BUILT-IN `@@iterator`. You may define one however
+
+### Review
+- Objects have literal forms (`var a = { .. }`) and a constructed form (such as `var a = new Array(..)`).
+  - Literal form is almost always preferred while constructed form offers creation options
+  - Example of constructed form:
+  ```javascript
+  var a = new Object();
+  a.key = value;
+  ```
+
+## Chapter 4: Mixing (Up) "Class" Objects
+
+### Class Theory
+- OO (object-oriented) or class-oriented programming used as "data structures"
+- Example: `string` class
+  - Don't just care about data but also functionality we can perform with string. E.g., `.length` and other methods(?)
+- Base classes and inherited child class define behavior by way of methods and each would have its own data
+- Polymorphism: idea that a general behavior from a parent class can be overridden in a child class
+
+#### "Class" Design Pattern
+- Procedural programming describes code that is exclusively comprised of procedures (functions) that call other functions without any higher abstraction
+
+#### JavaScript "Classes"
+- JavaScript provides the illusions of classes
+
+### Class Mechanics
+- A "stack" data structure (push, pop, etc) is provided as a `Stack` class.
+  - Has internal set of variables storing data with publicly accessible behaviors (methods), giving code ability to interact with data
+  - `Stack` is NOT directly operated one and is instead an explanation of what any stack should do. The `Stack` class must be instantiated before you have a concrete data structure
+
+#### Building
+- Classes are like the blueprint for a building, NOT the building.
+  - A builder creates an instantiation of the plans, which becomes an object or an instance
+  - This object is a copy of the characteristics described by the class
+- An object instant cant modify the plans (that is, the class)
+
+#### Constructor
+- Instances are constructed by a special method of the class, the constructor. It initializes the state of the instance
+- Constructors are pretty much always called with `new`
+
+### Class Inheritance
+(https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch4.md#class-inheritance)
