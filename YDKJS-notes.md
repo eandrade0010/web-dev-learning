@@ -862,4 +862,43 @@ for (var v of myArray) {
 - Constructors are pretty much always called with `new`
 
 ### Class Inheritance
-(https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch4.md#class-inheritance)
+- A child class is separate from the parent once it exists. It can override inherited behavior and even define new ones.
+  - Parent's class is more like the parent's DNA. We have to "build" the child with the DNA, i.e., the "blueprint" by instantiating it
+
+#### Polymorphism
+- A method can override an inherited behavior, BUT the new child CAN reference the original inherited behavior. Known as relative polymorphism
+- A super class is the parent/ancestor of the current class
+- Method name can have multiple definitions at different levels of the inheritance chain
+- For JS it is more appropriate to think of the "class" belonging to the constructor
+  - Constructors are not directly related, the relationship exists between the two `.prototype` objects of the relative constructors.
+- Definition for a method will polymorph (change) depending on which class (level of inheritance) you are refering an instance of
+- Child class is NOT linked to its parent class, a child class gets a copy of what it needs from the parent class
+
+#### Multiple Inheritance
+- JS does not provide native mechanisms for "multiple inheritance"
+
+### Mixins
+- There are no classes in JS, only objects. Objects don't get copied, they get linked!
+
+#### Explicit Mixins
+- An `extend(..)` utility, or `mixin(..)` is a utility that manually copies behaviors between objects
+
+##### Mixing Copies
+- Two objects can "affect" each other via some reference to a common object, for example
+- Two objects share references to common functions, NOT duplication
+- No real benefit derived from copying a property from one object to another--arguably better to define the property separately for each
+
+##### Parasitic Inheritance
+
+#### Implicit Mixins
+- Borrowing a function from another object and calling it in the context of another!
+This leads to assignments to the other object
+
+### Review
+- JS has class syntax that behaves VERY differently
+- Classes mean copies
+- JS does NOT automatically create copies (as classes imply) between objects
+- Explicit mixins are not like a class copy, as shared references are duplicated and not the underlying object or function
+
+## Chapter 5: Prototypes
+(https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch5.md)
