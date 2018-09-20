@@ -901,4 +901,99 @@ This leads to assignments to the other object
 - Explicit mixins are not like a class copy, as shared references are duplicated and not the underlying object or function
 
 ## Chapter 5: Prototypes
-(https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch5.md)
+- Mixins, class-copy behaviors circumvent the prototype chain mechanism.
+
+### `[[Prototype]]`
+- All objects in JS have an internal property, which is `[[Prototype]]`, i.e., a reference to another object. (It is a non-null property)
+- What happens if a property ISN'T present on an object?
+  - The `[[Get]]` operation follows the `[[Prototype]]` link
+  - `for..in` loops will consult the chain
+
+#### `Object.prototype`
+- All objects descend from the `Object.prototype` object
+
+##### Setting and Shadowing Properties
+- If a property is present somewhere higher in the chain, this is referred to as shadowing because the property on the object shadows that property. Lookup will return that property lowest in the chain
+- Three scenarios for a property assignment when the property is NOT already on the object, but IS at a higher level of the prototype chain
+  1. If it is found up the chain and is NOT read-only (i.e., `writable:false`) then a new property is added as a shadowed property
+  2. If it is found and IS read-only, no new property will be added so no shadowing occurs
+  3. If the property is found higher up the chain and is the setter, THIS setter will be called. The property will not be added to the object and the setter will not be redefined
+
+  - Note: if you want to shadow a property in the latter cases, you must use `Object.defineProperty(..)` to add the property
+  - The reason for the restriction in (2) is to strengthen the illusion of class-inherited properties.
+
+### Class
+- What is `[[Prototype]]` NOT?
+- JS is "object oriented" because objects can be created directly WITHOUT a class at all
+
+#### "Class" Functions
+- Sort-of-class behavior:
+  - All functions by default get a public, non-enumerable property called `prototype`, which points at an otherwise arbitrary object.
+  - Each object created from calling `new Foo()`, for example, will become linked to the prototype object. In fact, this is an indirect way to end up with exactly what we want(?) a new object linked to another object
+- The `[[Prototype]]` mechanism is often called "prototypal inheritance"--fits dynamic scripting
+- JS can essentially delegate property/function access to another object
+
+#### Constructors
+- Note: by convention, classes in JS are denoted by capital first letter
+
+##### Constructor or Call
+- The function is not a call and the `new` keyword just calls a function as a constructor call. Function calls are "constructor calls" if `new` is used
+
+#### Mechanics
+- Remember that the `[[Get]]` algorithm will look up the `[[Prototype]]` chain, so looking for a property will send it up to the prototype
+
+##### Constructor Redux
+- Constructor does NOT mean "constructed by"
+
+### "(Prototypal) Inheritance"
+- Linking is done by using `new` but then you can link the prototype to the proper one rather than its default!
+
+#### Inspecting "Class" Relationships
+- Introspection or reflection denotes inspecting an instance for its inheritance ancestry (delegation linkage in JS)
+  - Can be done using `a instanceof Foo;` for example, however, this only answers if we can find `Foo.prototype` pointed to somewhere along the chain
+  - If a hard-bound function is used for a constructor call, it will behave as if the original target function was invoked instead
+- A clean approach to `[[Prototype]]` reflection is: `Foo.prototype.isPrototypeOf(a);`
+  - This asks, if the first object appears in the others chain
+- Getting prototype of an object is as simple as using `Object.getPrototypeOf(a);`
+- `.__proto__` retrieves the internal prototype of an object as a reference--helpful if wanting to inspect or traverse prototype chain
+  - More of a getter/setter
+  - Can set a default function's `.prototype` object to reference some other object. Treat object prototype as read-only
+- Note: double-underscore -> "dunder". E.g. `__init__` is dunder init
+
+### Object Links
+#### `Create()`ing Links
+- The `Object.create(..)` function creates a new object link to the object specified, allowing us to link
+- An object linked to `null` will typically be used for storing data in properties, mostly to avoid delegated properties/functions on the `[[Prototype]]` chain
+
+#### `Object.create()` Polyfilled
+- Remember that polyfill refers to implementing functionality to older versions of JS
+
+#### Links as Fallbacks?
+- Don't rely on these links. This will produce the illusion of a magically appearing property! Better to create a method on an object that explicitly defines that delegation
+
+### Review
+- All normal objects have the built-in `Object.prototype` as the top of the prototype chain
+  - Several utilities exist on this object
+- Using `new` is most common way to link objects to each other
+- The other object being linked to is referenced by the `.prototype` property of the function called with `new`.
+  - Functions called with `new` are often called constructors
+- Better to think of relationship as delegation links
+
+## Chapter 6: Behavior Delegation
+- Review: the `[[Prototype]]` mechanism is an internal link existing on an object which references another object.
+- All about objects being linked to other objects
+
+### Towards Delegation-Oriented Design
+- Encapsulation IS compatible with delegation, just not common
+
+#### Class Theory
+#### Delegation Theory
+- First define a "parent" object called `Task`. Which will have utility methods with concrete behavior
+- Differences to not with OLOO (objets-linked-to-other-objects) style code:
+  1. State should be on the delegators, not the first objects. Setters can be on the first objet
+  2. Avoid using same names for behavior delegated. Each property should be specific to the type of behavior each object is doing
+  3. General utility methods existing on prototype object are available to use while interacting with "child" objects because the latter may delegate to the former
+- Behavior delegation: let some object provide a delegation to another for property or method references if not found on object
+
+#### Mental Models Compared
+(https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch6.md#mental-models-compared)
