@@ -996,4 +996,37 @@ This leads to assignments to the other object
 - Behavior delegation: let some object provide a delegation to another for property or method references if not found on object
 
 #### Mental Models Compared
-(https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch6.md#mental-models-compared)
+
+### Classes vs Objects
+- Typical scenario in front-end web development: creating UI widgets (buttons, drop-downs, etc.)
+
+#### Widget "Classes"
+- OLOO supports separation of concerns, where creation and initialization are not conflated
+
+### Simpler Design
+- Simpler code architecture. Example is consideration of two controller objects: one for handling login form of web page and other for handling authentication (communication) with the server
+- Base functionality
+
+#### De-class-ified
+- Avoid polymorphism pitfalls by NOT having the same name on different objects
+
+### Nicer Syntax
+- With ES6 we can use concise method declarations in any object literal
+  - Can create methods without using `function`
+  - You can create an objecct with all the properties THEN delegate using `Object.setPrototypeOf("child", "delegater");`
+
+#### Unlexical
+- Remember that lack of a name identifier on an anomymous function:
+  1. makes debugging stack traces harder
+  2. makes self-referencing harder
+  3. makes code harder to understand (by a smidgen)
+- Might prove problems for self-references; so in this case forgo concise method syntax just for that declaration in favor of the manual named function expression declaration form
+
+### Introspection
+- Introspection: inspecting an instance to find out what kind of object it is
+- Duck typing refers to assuming that an object holds a delegatable function and testing its condition, then running!
+
+### Review
+- Behavior delegation is powerful. Suggests that objects are peers of each other, which delegate among themselves.
+  - Works off of the `[[Prototype]]` mechanism
+- OLOO (objects-linked-to-other-objects) is a code styles that creates and relates objects without classes
