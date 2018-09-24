@@ -171,3 +171,76 @@
 
 #### Summary
 - Semantics are very important for HTML with regards to structure and meaning
+
+### Lesson 3: Getting to Know CSS
+
+#### The Cascade
+- All styles cascade from top of a style sheet to the bottom
+
+##### Cascading Properties
+- Cascading also works with properties inside individual selectors
+- Some specificity of selectors CAN break the Cascade
+
+#### Calculating Specificity
+- There are three selectors (type, class, id) and each has its own weight of specificity
+  - In order of precedence: id, class, type
+  - Specificity weights have values of `X-X-X`, e.g., `id` has `1-0-0`
+  - The weight is calculated using points `ID-CLASS-TYPE`
+  - Denotes superiority when styling conflict occurs
+
+#### Combining Selectors
+- When selectors are combined, they should be read from right to left with the rightmost selector being the key selector
+- Remember that selecting a class is done using `.class`, an id using `#id`, and a type using `p` (e.g.)
+
+##### Spaces within Selectors
+- Are of huge importance
+- Best practice NOT to prefix a class selector with a type selector
+- Example: `.hotdog p.mustard` is targeting the `.mustard` class within paragraphs that reside within classes of `hotdog`
+
+##### Specificity within Combined Selectors
+- The specificity weight of each selector is added, column to column
+- Allows more superior combined selectors to take precedence
+
+#### Layering Styles with Multiple Classes
+- Keep specificity weights of selectors low via modularity by layering on different styles by using multiple classes
+- We can have more than one class attribute value as long as they are separated by a space
+- Better than aggregating large specificity weights that might lead to clashes or confusion?
+
+#### Common CSS Property Values
+##### Colors
+- Defined on sRGB (standard RGB)
+- Four primary ways to represent sRGB colors
+
+###### Keyword Colors
+- Can be found [here](https://www.w3.org/TR/css-color-3/)
+
+###### Hexadecimal Colors
+- Consist of a `#` followed by 3 or 6 characters (either 0-9 or a-f) with each channel or each two relating to each color channel. If each pair is duplicate it can be shortened to three characters
+- Helps to know that `0` is black and `f` is white
+- A good resource to refer to is this [color-wheel](https://color.adobe.com/create/color-wheel/)
+
+###### RGB & RGBa Colors
+- Remember that 0 is black and 255 is white
+- Can also include an alpha or transparency channel using the `rgba()` notation.
+  - alpha must be a number between 0 and 1, including decimals with 0 being fully transparent
+
+###### HSL & HSLa Colors
+- Stands for hue, saturation, and lightness
+- Hue is a number from 0 to 360, related to the degree of a color on the color wheel
+- Can also implement transparency
+- Hexadecimal colors most commonly Used
+
+##### Lengths
+###### Absoluate Lengths
+- Most popular is pixel
+
+####### Pixels
+- Equal to 1/96th of an inch
+###### Relative Lengths
+- Based on percentages are the most popular. The percentage typically references a parent's element
+- The em unit is calculated per an element's font size, i.e., 1em = font-size
+  - Often used for styling text as well as spacing around text including margins and paddings
+
+#### Summary
+- Color values include keyword, hexadecimal, RGB, and HSL Values
+- Length values include pixels, percentages, and em units
