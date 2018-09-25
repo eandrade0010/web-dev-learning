@@ -244,3 +244,96 @@
 #### Summary
 - Color values include keyword, hexadecimal, RGB, and HSL Values
 - Length values include pixels, percentages, and em units
+
+### Lesson 4: Opening the Box Model
+
+#### How are Elements Displayed?
+- Block-level elements occupy available width and begin on a new line, while inline-level elements occupy only the width their content requires and can line up on the same line.
+
+##### Display
+- Each element has a `display` property that CAN be overwritten
+- This display property can be overwritten in CSS as either `block`, `inline` or `inline-block` and even `none`
+
+#### What is the Box Model?
+- Every element on a page is a rectangular box with width, height, padding, borders, and margins
+
+#### Working with the Box Model
+- Each part of the box model corresponds to a CSS property: `width`, `height`, `padding`,`border`, and `margin`.
+- Total height and widths of element are sums of margins borders paddings and widths
+
+##### Width and Height
+- Property values for non-inline elements may be specified if key to page
+
+###### Width
+- Block level elements default to a width of 100%.
+-  Inline-level elements accommodate content so they CANT have a fixed sized
+
+###### height
+- Defaulted by content
+
+###### Sizing Inline-level Elements
+- Block and inline-block level elements will accept width and height properties
+
+##### Margin and padding
+- Browsers will apply default ones for legibility and clarity
+
+###### Margin
+- Amount of space SURROUNDING element, will fall outside of border
+- Can't specify top and bottom margins for inline-level elements
+
+###### Padding
+- Falls INSIDE element's border
+- WILL work vertically on inline-level elements
+
+###### Margin and Padding Declarations
+- Some properties have shorthand and longhand
+  - Longhand denotes listing multiple properties and values one after the other
+- Margin and padding come in both longhand and shorthand
+  - In shorthand, top and bottom, and then left and right can be listed; OR all four top to left moving clockwise
+- In long hand, each property name is followed by a dash and the side to which the value is applied
+
+###### Margin and Padding colors
+- Transparent!
+
+##### Borders
+- Requires three properties: width, style, and color
+- In shorthand they follow the above order, or can be separated using longhand
+- Borders can also have different appearances, e.g.: solid, double, dashed, dotted, and none
+
+###### individual Border Sides
+- Each border's side can be styled and then a explicit value, e.g., `border-bottom-width: 20px`
+
+###### Border Radius
+- Border corners can be rounded using `border-radius`
+- Can be specified in longhand or shorthand using same order mentioned before (top to bottom or top to left in clockwise direction)
+- Can be very specific: `border-top-left-radius`
+
+##### Box Sizing
+- CSS3 introduced a `box-sizing` property allowing us to change how the box model works and how an element's size is calculated.
+  - Accepts three values: content-box, padding-box, and border-box
+
+###### Content Box
+- Browsers began supporting different values and properties by way of vendor prefixes and can be seen on both properties and values, all depending on the CSS specification
+- Common vendor prefixes are `moz`, `ms`, `webkit` for mozilla, IE, and chrome & safari respectively
+
+###### Padding box
+- ALters box model by including the padding property within the width and height of an element. If a padding is defined, the content will shrink to fit
+- No longer Used
+
+###### Border Box
+- Value is `border-box`
+- Border AND padding included within the width and height of an element
+- Margin values still always have to be added
+
+###### Picking a Box Size
+- There IS a lack of support for CSS3 specifications
+
+#### Developer Tools
+
+#### In Practice
+
+##### The Universal Selector
+- In CSS, the asterisk * selects every element
+- The `:before` and `:after` can be dynamically generated and are pseudo elements
+
+#### Summary
