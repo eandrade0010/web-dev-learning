@@ -337,3 +337,56 @@
 - The `:before` and `:after` can be dynamically generated and are pseudo elements
 
 #### Summary
+
+### Lesson 5: Positioning Content
+
+#### Positioning with Floats
+- Float allows us to remove an element from the normal flow of a page and position it to the left or right of its parent element. All other elements will then flow around the element
+- The float property accepts either `left` or `right`
+
+##### Floats in Practice
+- Floats will float all the way to the edge of either the parent element or the Page
+- We can fix the `width` of the element and include margins so that no columns overlap
+
+###### Floats may change and Element's Display Value
+- If an inline-level element is floated it's display will be changed to block
+
+- If we would like to construct multiple columns you must float all columns to the left, ensure appropriate margins and widths.
+
+##### Clearing and Containing Floats
+- Was never intended for layout and positioning purposes so there are a few drawbacks:
+  - Proper styles might not be rendered on element next to or is a parent of a floated element
+- Need to clear or contain floats to prevent content from wrapping around floated elements
+
+###### Clearing Floats
+- The `clear` property accepts: `left`, `right`, or `both`
+- Clear should be applied after floated elements to return page to normal flow
+
+###### Containing Floats
+- To contain, a floated element must reside within a parent element whom will act as a container
+- Method for containing elements is known as a clearfix
+
+#### Positioning with Inline-Block
+- Recall that the inline-block will allow to display elements within a line with box properties
+
+##### Inline-block in Practice
+- The spaces will be too great!
+
+###### Removing Spaces between Inline-Block Elements
+- By keeping the opening tag of the next section on the same line as the previous closing tag, ensures space between elements won't exist
+  - Similarly, can also use commented spaces between the two
+
+#### Creating Reusable Layouts
+
+#### In Practice
+
+#### Uniquely Positioning Elements
+- The `position` property identifies how an element is positioned on a page and whether or not it will appear within the normal flow.
+- Default position value of static which can be overwritten
+
+##### Rleative Positioning
+- Allows to appear within normal flow of a page while leaving space for an element and NOT allowing wrapping
+- Positioning relative to original position
+
+##### Absolute Positioning
+- Will be moved in relation to its closeset relatively positioned parent element
