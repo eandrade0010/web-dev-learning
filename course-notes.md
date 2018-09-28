@@ -390,3 +390,100 @@
 
 ##### Absolute Positioning
 - Will be moved in relation to its closeset relatively positioned parent element
+
+### Lesson 6: Working with Typography
+- Fonts can now be embedded
+
+##### Typeface vs Font
+- Typeface of what we see. Font is a file that CONTAINS the typeface. Think song and mp3
+
+#### Adding Color to Text
+- Use the `color` property
+
+#### Changing Font Properties
+
+##### Font Family
+- Font-family property declares fonts as well as fallbacks, separated by commas
+- Font names consisting of two or more words must be wrapped in quotations
+
+##### Font Style
+- Font-style property accepts either `normal`, `italic`, `oblique` or `inherit`
+
+##### Font Variant
+- Font-variant accepts three values: `normal`, `small-caps`, and `inherit`
+
+##### Font Weight
+- `font-weight` property accepts keyword or numeric values
+  - Keyword include `normal`, `bold`, `bolder`, `lighter`, and `inherit`
+  - Numerical range from 100-900. Thin to thickest
+
+##### Typeface Weights
+- Some typefaces don't come in all weights so they will default to the closest related weight
+
+##### Line Height
+- Distance between two line of text
+- Can use height and line-height to vertically center a single line of text within an element
+
+##### Shorthand Font Properties
+- Shorthand values should be given as:
+`font-style`, `font-variant`, `font-weight`, `font-size`, `line-height`, `font-family` WITHOUT commas, except for font-family property values
+- A forward slash is needed between font-size and line-height
+- May choose to use only font-size and font-family in shorthand
+
+##### Font Properties All Together
+- Pseudo-class styles such as `:hover` is added to a selector to style an element when it is in a unique state
+
+#### Applying Text Properties
+
+##### Text Align
+- Use the `text-align` property with values of `left`, `right`, `center`, `justify`, and `inherit`
+
+##### Text Decoration
+- The `text-decoration` property accepts values of `none`, `underline`, `overline`, `line-through`, and `inherit`
+
+##### Text Indent
+- Will intent first line of text within an element
+- E.g., `text-indent: 20px;`
+
+##### Text Shadow
+- The `text-shadow` property allows us to add a shadow or multiple shadows and takes four values from left to right, with the first three being lengths and the last being color
+  - Length values: (1) horizontal offset, (2) vertical offset, and (3) shadow's blur radius
+- Multiple text shadows can be chained together
+
+##### Box Shadow
+- The `box-shadow` property works similarly to the text shadow property
+- Accepts optional fourth length value for spread of a shadow
+  - Can expand shadow or shrink`
+- Also accepts optional `inset` value to place shadow inside an element
+
+##### Text Transform
+- Accepts five values: `none`, `capitalize`, `uppercase`, `lowercase`, `inherit`
+
+##### Letter Spacing
+- Can use `em` for sizing to ensure relative spacing with varying font sizes
+
+##### Word Spacing
+
+##### Text Properties All Together
+
+#### Using Web-Safe Fonts
+- There a few fonts that are pre-installed on most devices
+  - Arial, Garamond, Lucida, Tahoma, Trebuchet, Courier, Courier New, Georgia, Palatino Linotype, Times, Times New Roman, Verdana
+
+#### Embedding Webfonts
+- Can upload fonts to a server and include them using the CSS @font-face at-rule
+- Useful link: (https://fonts.google.com/)
+
+#### Including Citations and Quotes
+- When to use which
+  - `<cite>`: reference to a creative work, author or resource
+  - `<q>`: for short inline quotations
+  - '<blockquote>': for long external quotations
+
+##### Citing a Creative Work
+- Sometimes cite attribute is included on the `<q>` element
+
+##### External Quotation
+- Can also include a cite attribute as well as a `<cite>` element wrapped within it
+
+##### Summary
