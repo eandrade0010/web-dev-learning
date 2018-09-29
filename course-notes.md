@@ -487,3 +487,128 @@
 - Can also include a cite attribute as well as a `<cite>` element wrapped within it
 
 ##### Summary
+
+### Lesson 7: Setting Backgrounds and Gradients
+
+#### Adding a Background Color
+- `background`accepts colors and images in shorthand form while the `background-color` property accepts colors strictly
+  - Again, colors can be keyword, hexadecimal, rgb(), rgba(), hsl(), or hsla()
+- Transparent Backgrounds
+  - Some browsers do not support RGBa or HSLa so it would be best to provide a fallback color
+  - Fallback can be done by defining the property twice
+
+#### Adding a Background Image
+- Can use the `background` property or `background-image` property with the source as a string parameter to the `url()` function
+- Default will tile image to fill the background
+
+##### Background Repeat
+- This property accepts `repeat`, `repeat-x[y]` or `no-repeat`
+
+##### Background Position
+- Top-left corner by default
+- `background-position` will move the background with respect to the top-left default
+- Requires two values in this order: horizontal offset, vertical offset
+- Lengths or keywords can be used (top, right, bottom, left; e.g., left top)
+
+##### Shorthand Background Image Values
+- The background property will accept all in this order: background-color, background-image, background-position, and background-repeat
+
+#### Designing Gradient Backgrounds`
+- Can be created using the `background` or `background-image` Properties
+
+##### Gradient Background Vendor Prefixes
+
+##### Linear Gradient Background
+- Defined within the `background` or `background-image` property using the `linear-gradient()` function which accepts two values, the beginning and ending color
+  - Use fallbacks
+
+##### Changing the Direction of a Gradient Background
+- Default is top to bottom
+- Can be designated using keyword values or degree value, BEFORE color values
+  - E.g., `to right bottom`
+- NOTE: If using degrees, the end will be the origin of the frame
+
+##### Radial Gradient Background
+- Use the `radial-gradient()` function
+- First color starts at absolute center
+- More complex; refer to [radial gradients](https://dev.opera.com/articles/css3-radial-gradients/)
+
+##### Gradient Color Stops
+- Additional colors can be added and should be separated using commas
+- The length of a color can be defined using any length value (percentage for instance)
+  - Default: 0% to 100%, first to last color
+
+#### Using Multiple Background Images
+- Multiple images can be using by comma-separating multiple background values within a `background` or `background-image` property
+
+#### Exploring New Background Properties
+- Some new properties introduced with CSS3 include: `background-size`, `background-clip`, and `background-origin`
+
+##### CSS3 Background Size
+- Includes length and keyword values  
+  - With length values we can specify a width and height with space-separated values
+  - Use `auto` to preserve aspect ratio of image
+
+##### Cover and Contain Keyword Values
+- The `cover` keyword will cover element while preserving the aspect ratio. This leads to cropping if necessary
+- `Contain` will preserve the aspect ratio while trying to preserve entire image within element. Will not always occupy full space of element
+
+##### CSS3 Background Clip & Background Origin
+- The `-clip` property specifies surface area background image will cover while `-origin` will specify where the background-position should originate
+- New keyword values: `border-box`, `padding-box`, and `content-box`
+
+### Lesson 8: Creating Lists
+
+#### Unordered Lists
+- Accomplished using the unordered list block-level element `<ul>`. Each item is wrapped up in an inline `<li>` element
+
+#### Ordered Lists
+- Use the order list block-level element `<ol>`.
+- Order depends on order in which items are presented
+- Have unique attributes such as `start` and `reversed`
+
+##### Start Attribute
+- The `start=` attribute defines the number to start the list at
+
+##### Reversed Attribute
+- Is a boolean; and because the default is false, including the attribute reverses the list. E.g., `<ol reversed>`
+
+##### Value Attribute
+- Each `<li>` item can include a value attribute. Each list item following will count upwards from that number
+
+#### Description Lists
+- Used in cases such as a glossary
+- Is commenced with a description block-level element `<dl>`. Each then includes the description term element, `<dt>` and then the description element, `<dd>`
+
+#### Nesting Lists
+- Lists must be nested within the `<li>` elements of another list
+
+#### List Item Styling
+
+##### List Style Type Property
+- The `list-style-type` property. Here you can change markers for example
+
+##### List Style Type Values
+- You can format list elements with an image instead of the marker
+
+##### List Style Position Property
+- With the `list-style-position` property we can change the positioning of the marker using the values `outside` (default), `inside`, or `inherit`.
+- With `inside` the text will wrap below the marker
+
+##### Shorthand List Style Property
+- The `list-style` property takes first, the `list-style-type` then the `list-style-position`
+
+#### Horizontally Displaying List
+
+##### Displaying List
+- Making list elements inline-blocks will with the `display` property will place them on a single line with a single space between each list item
+- Markers will be removed
+
+##### Floating List
+- Floating is better option if item marker is needed
+- Must include a margin on the list items with float to ensure they do not sit on top of each other
+- Remember to use a clearfix to return page to normal flow
+
+##### Navigational List Example
+
+### Lesson 9: Adding Media
