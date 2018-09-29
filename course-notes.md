@@ -612,3 +612,74 @@
 ##### Navigational List Example
 
 ### Lesson 9: Adding Media
+
+#### Adding Images
+- Use the inline `<img>` element. Is a self-containing, empty element
+- Embed as `<img src="xxx.jpg" alt="Description">`
+  - If image can't be rendered, the alt text will be displayed
+- Supported image formats: gif, jpg, and png
+  - JPG quality images with high color counts
+  - PNG great for transparencies or low color counts (best used for icons or background patterns)
+
+#### Sizing Images
+- If you identify the size of an image, the browser will reserve the appropriate space and render the page faster
+- width and height can be modified directly in the `<img>` tag or with CSS properties
+  - CSS properties will take precedence
+  - If you define one, the other will resize to preserve aspect ratio
+- Common to use CSS to resize images to do so for numerous ones at a time
+
+#### Positioning Images
+- Default positioned as inline-level elements.
+- May changes using float, display, and box model properties indcluding padding, border, and margin
+
+##### Inline Positioning Images
+
+##### Block Positioning Images
+- Can force an image element to block-level element
+
+##### Positioning Images Flush Left or Right
+- Better to float to left or right to allow text to wrap around. Make sure to inclue margins!
+
+##### Image Element vs Background Image
+- Images can be embedded using both but the image element connotes more semantic meaning to the image
+
+#### Adding Audio
+- Can be done using an `<audio>` element. Accepts a src attribute but needs a closing tag
+
+##### Audio Attributes
+- the `autoplay` `controls` and `loop` attributes are boolean attributes and don't require a state value
+- `controls` will display the audio element
+- The `preload` attribute will load any information per the values `metadata` or `none`. As a default the `auto` attribute will be defaulted to and will load ALL information
+
+##### Audio Fallbacks & Multiple Sources
+- Three most popular formats are ogg, mp3 and wav.
+- Fallbacks can be provided by using explicit source elements within an audio element
+  - The source element accepts the `src` attribute as well as `type`
+    - Type should be designated as `audio/mpeg` for example
+
+#### Adding Video
+- All of the same attributes of audio are used for the `<video>` element
+- If the controls attribute isn't defined it will still be displayed
+- Width and height properties should be prescribed to help page load faster as with Images
+
+##### Poster Attribute
+- The thumbnail for the video!
+
+##### Video Fallbacks
+- Define `<source>` elements within a `<video>` element for fallbacks
+
+#### Adding Inline Frames
+- Embed another HTML page within the current page
+- Uses the `<iframe>` element which accepts a url for its src attributes
+- Each has default styles for inset border and width and height
+  - Can be modified using HTML attributes: frameborder, width, and height or by using border, width, and height CSS properties
+
+#### Semantically Identifying Figures and Captions
+- The `<figure>` and `<figcaption>` element are used to semantically mark up self-contained content or media with a Captions
+
+##### Figure
+- Element should be able to be moved around without disrupting content or legibility of the page
+- Wrap images in this
+
+##### Figure Caption
+- Should appear within the figure element and can only appear once! Can replace the need for `alt` attribute on images
