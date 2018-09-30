@@ -769,3 +769,59 @@
 
 ##### Additional Attributes
 - accepts, formaction, formovalidate, maxlength, readonly, autocomplete, formenctype, formtarget, min, selectionDirection, autofocus, formmethod, max, pattern, step
+
+### Lesson 11: Organizing Data with Tables
+
+#### Creating a Table
+- At a minimum each table should have the `<table>`, `<tr>` (table row), and `<td>` (table data elements)
+
+##### Table
+- Use the `<table>` element to initialize a table on a page
+
+##### Table Row
+- Each row uses the `<tr>` elements
+
+##### Table data
+- Listing multiple `<td>` elements within a table row element creates columns
+
+##### Table Header
+- Can be used to provide a heading for a column or row of cells
+- Works just like `<td>` element but is preferred due to provided semantic value
+- May be used within both columns and rows
+- `scope` attributes helps to identify the content. Uses values of `col`, `row`, `colgroup`, and `rowgroup`.
+  - Will indicate that any data within that column relates to that header
+- Can use the `header` attribute on a `<td>` element to tie it to a `<th>` element with the corresponding id attribute
+
+#### Table Structure
+
+##### Table Caption
+- `<caption>` element for tables. Must come immediately after opening table tag to position it at the top
+
+##### Table Head, Body, & Foot
+- Can break up content into groups to structurally organize Tables
+- `<thead>` element will wrap the heading row or rows of a table and should come after the caption element
+- The `<tbody>` element contains primary data and `<tfoot>` contains data outlining the content of a table
+
+##### Combining Multiple Cells
+- Can combine multiple cells using the `colspan` or `rowspan` attributes on table data or header elements
+- The integer value denotes amount of cells to span
+
+#### Table Borders
+
+##### Border Collapse Property
+- The default value for `border-collapse` is `separate`. Each border will be stacked upon the last or `collapse` will merge adjacent borders
+
+##### Border Spacing Property
+- If the border collapse property is set to separate, `border-spacing` will space the borders of adjacent cells
+- Can accept two values: horizontal spacing, then vertical spacing
+
+##### Adding Borders to Rows
+
+#### Table Striping
+- Can use the `:nth-child` pseudo-class selector with an even or odd argument
+- Example: `tbody tr:nth-child(even) {..}`
+
+#### Aligning Text
+- Names, descriptions, etc. usually flush left and numbers, figures, etc flush right
+
+### Lesson 12: Writing Your Best Code
