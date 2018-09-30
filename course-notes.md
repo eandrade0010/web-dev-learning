@@ -683,3 +683,89 @@
 
 ##### Figure Caption
 - Should appear within the figure element and can only appear once! Can replace the need for `alt` attribute on images
+
+### Lesson 10: Building Forms
+
+#### Initializing a Form
+- The `<form>` element defines position of the page control elements and will wrap all elements within form
+- Most common attributes are action and method. Action contains URL to which information included within the form will be sent for processing by server
+- Method attribute is the HTTP method browsers use to submit form data
+
+#### Text Fields and Textareas
+
+##### Text Fields
+- The `<input>` element uses the type attribute, of which the most common is `text` that denotes a single line of text input. Attach a `name` attribute
+  - This element is self-contained
+- Default type is `text` but HTML5 includes the following: color, email, range, time, date, month, search, url, datetime, number, tel, week
+- Different controls will appear based on type
+
+##### Text Area
+- The `<textarea>` element also captures text-based data but it can capture significantly long passages. Also has start and end tags that can wrap plain text.
+- Only accepts text so name attribute is only one needed
+- Accepts two sizing attributes: cols and rows. More commonly modified using CSS however
+
+#### Multiple Choice Inputs and Menus
+
+##### Radio Buttons
+- Input element with a radio type. Each should share the same `name` attribute to ensure they correspond to one another
+- Value is the choice given. The `checked` boolean will preselect a value
+
+##### Check Boxes
+- Similar to radio buttons EXCEPT that the type is `checkbox` and more than one value can be selected!
+
+##### Drop-down Lists
+- Use the `<select>` element with the `<option>` elements Within
+- Select attribute is name and the option element takes values and a `selected` boolean
+
+##### Multiple Selections
+- Use same procedure as drop-down lists but add the `multiple` boolean to the outer `<select>` element
+
+#### Form Buttons
+
+##### Submit Input
+- Created using the `<input>` element with a type of `"submit"`
+- The value attribute is the text that will appear on the button
+
+##### Submit Button
+- As an input element the submit button is self-contained. If more control is desired the `<button>` element may be used.
+- Automatically defaults to submit type and needs only a name attribute text. The text appearing between the opening and closing tags will appear on button
+
+#### Other Inputs
+
+##### Hidden Input
+- The `hidden` type does not display to the users but is helpful when processing the form
+
+##### File Input
+- Use the file value for the type
+- Hard to format styling with CSS because of default input styles for file with each browser
+
+#### Organizing Form Elements
+
+##### Label
+- Provide captions or headings for form controls. They have opening and closing tags for a description of the control and are tied to the form control using the `for=` attribute. This should be linked to the name of the form control
+  - By clicking the caption, user can directly start inputting text to the corresponding field
+- Labels can wrap form controls directly from the start
+
+##### Fieldset
+- Block-level element that wraps related elements for better organization. Will include a border outline that can be modified using CSS
+
+##### Legend
+- Provide a caption or heading for the `<fieldset>` element. Wraps text describing the form controls. Should be included right after the opening `<fieldset> tag`
+
+#### Form & Input Attributes
+
+##### Disabled
+- Turns off an element or control so it is not available. Will not send any value to the serve for form processing
+- Applying to fieldset element will disable all controls within it
+
+##### Placeholder
+- Provides hint or tip within the form or control and disappears once the control is clicked in or gains focus
+- Difference between this and value is value stays in place and needs to be deleted
+
+##### Required
+- Ensures that element or form control must contain a value upon being submitted to the server
+- Invalid elements and form controls can be styled using the `:optional` and `:required` CSS pseudo classes
+- Will also make sure the value corresponds to the right type
+
+##### Additional Attributes
+- accepts, formaction, formovalidate, maxlength, readonly, autocomplete, formenctype, formtarget, min, selectionDirection, autofocus, formmethod, max, pattern, step
