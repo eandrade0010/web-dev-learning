@@ -65,11 +65,19 @@ img {
 }
 
 /* Form stuff */
+form {
+  text-align: center;
+  display: block;
+  border: solid 1px #000;
+  font: 600 16px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
 form span {
   display: inline-block;
+  text-align: left;
   text-transform: uppercase;
   width: 200px;
+  border: solid 2px #000;
 }
 
 fieldset {
@@ -79,7 +87,12 @@ fieldset {
 }
 
 fieldset input {
+  display: inline-block;
+  border-radius: 2px;
+  box-shadow: 0;
   vertical-align: top;
   color: rgba(0, 0, 0, 0.3);
+  line-height: 30px;
   margin: 0 10px;
+  width: 200px;
 }
