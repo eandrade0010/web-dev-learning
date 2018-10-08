@@ -1,0 +1,85 @@
+*,
+*::after,
+*:before {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.fa {
+  text-decoration: none;
+  font-size: 20px;
+  color: #fff;
+  margin: 5px 10px;
+}
+
+body {
+  width: 960px;
+  background: #FFFAE2;
+
+}
+
+header {
+  display: block;
+  font-family: Arial;
+  background-color: #453F35;
+  height: 300px;
+  color: #fff;
+  text-align: center;
+  vertical-align: top;
+  margin-bottom: 180px;
+}
+
+.header:after {
+  clear: both;
+}
+
+.name {
+  display: inline-block;
+  vertical-align: top;
+  text-transform: uppercase;
+  margin: 0 0 20px 200px;
+}
+
+.social-nav {
+  float: right;
+  vertical-align: top;
+  /* width: 200px; */
+  text-align: left;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+
+}
+
+.social-nav li {
+  display: inline-block;
+}
+
+img {
+  width: 95%;
+  display: inline-block;
+  border: solid 1px #000;
+}
+
+/* Form stuff */
+
+form span {
+  display: inline-block;
+  text-transform: uppercase;
+  width: 200px;
+}
+
+fieldset {
+  display: inline-block;
+  border: 0;
+  vertical-align: top;
+}
+
+fieldset input {
+  vertical-align: top;
+  color: rgba(0, 0, 0, 0.3);
+  margin: 0 10px;
+}
