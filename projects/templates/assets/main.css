@@ -58,7 +58,7 @@ ul {
   display: inline-block;
 }
 
-img {
+header img {
   width: 95%;
   display: inline-block;
   border: solid 1px #000;
@@ -95,4 +95,33 @@ fieldset input {
   line-height: 30px;
   margin: 0 10px;
   width: 200px;
+}
+
+/* Main SEction */
+
+.col-3-4,
+.col-1-4 {
+  display: inline-block;
+  text-align: center;
+}
+
+.col-1-4 {
+  width: 24%;
+
+  margin: 0 0 0 3px;
+}
+.col-3-4 {
+  vertical-align: top;
+  width: 75%;
+}
+
+.blog p {
+  text-align: justify;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.main img {
+  max-width: 100%;
+
 }
