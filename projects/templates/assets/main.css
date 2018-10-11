@@ -108,26 +108,21 @@ h1 {
 .newsletter {
   width: 900px;
   height: 50px;
-  border: solid 2px #000;
   font-size: 28px;
   margin: 0 auto;
 }
 
-.newsletter fieldset {
-  width: 100%;
-}
 
 .newsletter label {
   font: 600 16px Oswald;
-  border: solid 1px #000;
-  line-height: 18px;
+  line-height: 22px;
   text-transform: uppercase;
   letter-spacing: 3px;
+  vertical-align: middle;
 }
 
 .newsletter input {
   text-transform: uppercase;
-  vertical-align: top;
   padding: 8px 0;
 }
 
@@ -147,25 +142,30 @@ h1 {
   width: 25%;
 }
 .col-30 {
-  border: solid 1px #000;
   width: 30%;
 }
 
 .col-30 input {
-  /* margin-top: 0; */
-  vertical-align: top;
+  vertical-align: middle;
   width: 100%;
-  padding-left: 10px;
+  padding-left: 20px;
 }
 
 .sub-btn {
-  vertical-align: top;
+  vertical-align: middle;
   background-color: #453F35;
   color: #fff;
   border: none;
   font: 600 12px Oswald;
+  padding-top: 0;
 }
 
+.sub-btn:hover {
+  background-color: #fff;
+  cursor: pointer;
+  color: #000;
+  border: solid 1px #000;
+}
 
 
 /* form {
