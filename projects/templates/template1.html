@@ -5,37 +5,43 @@
     <meta charset="utf-8">
     <title>Template Duplication 1 (Practice)</title>
     <link rel="stylesheet" href="assets/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
   <body>
 
     <header>
-      <h1 class="name">Spinal Performance</h1>
+      <h1>Spinal Performance</h1>
 
-      <nav class="social-nav">
-        <ul>
-          <li><a href="#" class="fa fa-instagram"></a></li>
-          <li><a href="#" class="fa fa-facebook"></a></li>
-          <li><a href="#" class="fa fa-twitter"></a></li>
-          <li><a href="#" class="fa fa-linkedin"></a></li>
-        </ul>
-      </nav>
-      <img src="https://www.dukehealth.org/sites/default/files/thinkstockphotos-480125956.jpg" alt="Website Image"/>
+      <div class="primary-nav">
+        <a href="#" class="fa fa-bars"></a>
+
+        <nav class="social-nav">
+          <ul>
+            <li><a href="#" class="fa fa-instagram"></a></li><!--
+         --><li><a href="#" class="fa fa-facebook"></a></li><!--
+         --><li><a href="#" class="fa fa-twitter"></a></li><!--
+         --><li><a href="#" class="fa fa-linkedin"></a></li>
+          </ul>
+        </nav>
+        <img src="https://www.dukehealth.org/sites/default/files/thinkstockphotos-480125956.jpg" alt="Website Image"/>
+      </div>
+
     </header>
 
-    <form>
-      <fieldset class="information">
-        <span>signup to newsletter</span>
-        <input type="text" name="name" placeholder="Your Name">
-        <input type="text" name="email" placeholder="Your Email">
-      </fieldset>
-      <fieldset class="action">
-        <button name="subscribe">
-          <strong>Subscribe Now</strong>
-        </button>
-      </fieldset>
+    <form class="newsletter">
+      <span class="col-20">signup to newsletter</span><!--
+   --><fieldset class="information col-60">
+        <input class="col-50" type="text" name="name" placeholder="Your Name"><!--
+     --><input class="col-50" type="text" name="email" placeholder="Your Email">
+      </fieldset><!--
+   --><button class="col-20">
+        <strong>Subscribe Now</strong>
+      </button>
     </form>
+
+
 
     <section class="main">
       <article class="blog col-3-4">
