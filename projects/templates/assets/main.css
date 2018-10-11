@@ -9,6 +9,7 @@
 fieldset {
   border: 0;
   margin: 0;
+  padding: 0;
 }
 
 body {
@@ -34,30 +35,38 @@ ul {
 /* Header Block and Image */
 
 header {
-  background-color: #453F35;
-  height: 300px;
-  color: #fff;
+  height: 400px;
   position: relative;
   text-align: center;
-  vertical-align: top;
+  margin-bottom: 10px;
 }
 
 h1 {
-  font: 900 28px Oswald;
-  letter-spacing: 2px;
-  margin: 0 auto;
+  margin: 0;
+  height: 300px;
+  background-color: #453F35;
+  color: #fff;
   text-transform: uppercase;
+  font: 900 28px Oswald;
+  vertical-align: top;
 }
 
 /* Overlaid Navigation and Image */
 
-.primary-nav {
+.top {
   width: 900px;
   position: absolute;
   top: 0;
   left: 25px;
   height: 400px;
+  overflow: hidden;
 }
+
+.primary-nav {
+  display: block;
+  width: 100%;
+}
+
 
 .primary-nav .fa {
   padding: 12px 14px;
@@ -75,51 +84,84 @@ h1 {
   text-align: left;
 }
 
-.primary-nav:after {
-  clear: both;
-}
-
 .social-nav li {
   display: inline-block;
 }
 
-.primary-nav img {
-  width: 100%;
-  height: 100%;
+.primary-nav .fa:hover{
+  background: #fff;
+  color: #000;
+}
 
+.primary-nav:after {
+  clear: both;
+}
+
+
+.top img {
+  width: 100%;
 }
 
 
 /* Form stuff */
 
 .newsletter {
-  display: block;
   width: 900px;
   font-size: 20px;
   margin: 0 auto;
-  margin-top: 150px;
 }
 
-.information input {
-  padding: 5px 0;
-  text-align: left;
+.newsletter fieldset {
+  width: 100%;
 }
-
-.col-20,
-.col-50,
-.col-60 {
+/*
+.newsletter fieldset {
+  text-transform: uppercase;
   display: inline-block;
-  text-align: center;
+} */
+
+.newsletter label {
+  font: 600 16px Oswald;
+  line-height: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.newsletter input {
+  text-transform: uppercase;
+  padding: 5px 0;
+}
+
+.col-10,
+.col-20,
+.col-30 {
+  vertical-align: middle;
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.col-10 {
+  width: 10%;
 }
 
 .col-20 {
   width: 20%;
 }
-.col-50 {
-  width: 50%;
+.col-30 {
+  width: 30%;
 }
-.col-60 {
-  width: 60%;
+
+.col-30 input {
+  width: 100%;
+  padding-left: 10px;
+}
+
+.sub-btn {
+  background-color: #453F35;
+  color: #fff;
+  border: none;
+  font: 600 12px Oswald;
 }
 
 
