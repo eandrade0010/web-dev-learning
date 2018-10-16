@@ -34,6 +34,7 @@ ul {
 
 h1,
 h2,
+h3,
 .headlines,
 .keywords,
 .image-container {
@@ -109,12 +110,16 @@ h1 {
   clear: both;
 }
 
-.image-container img {
-  width: 100%;
+.image-container {
   position: relative;
 }
 
-.image-container div {
+.image-container img {
+  width: 100%;
+  /* position: relative; */
+}
+
+.news {
   width: 300px;
   position: absolute;
   top: 100px;
@@ -231,12 +236,11 @@ input {
   color: #000;
 }
 
-.blog a:hover {
+.content-container a:hover {
   cursor: pointer;
   background-color: #453F35;
   color: #fff;
 }
-
 
 .blog p {
   display: block;
@@ -251,7 +255,6 @@ input {
   width: 100%;
 }
 
-
 .search input {
   width: 75%;
   display: inline-block;
@@ -264,34 +267,76 @@ input {
 
 .content-container img {
   width: 100%;
-  overflow: hidden;
-}
-
-
-.aside-nav img {
-  height: 400px;
-  width: 100%;
-}
-
-article a:hover {
-  cursor: pointer;
-  background-color: #453F35;
-  color: #fff;
 }
 
 /* Aside */
+.aside-image {
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+.aside-image img {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: auto;
+}
+
+.aside-image-txt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  color: #fff;
+  font-size: 32px;
+}
 
 .categories {
   text-transform: uppercase;
 }
 
-.categories span {
-  display: block;
-  font-weight: 900;
-  margin: 10px 0;
+h3 {
+  font-size: 24px;
+  margin: 3px auto;
 }
 
-.categories li{
-  text-align: left;
-  line-height: 30px;
+.categories ul {
+  font-size: 18px;
+  margin-bottom: 10px
+}
+
+.categories a {
+  display: block;
+  padding: 6px 0;
+}
+
+.categories li {
+  border-bottom: solid 2px rgba(0, 0, 0, 0.1);
+}
+
+.categories li:last-child {
+  border: none;
+}
+
+.categories span {
+  display: inline-block;
+}
+
+.category {
+  width: 50%;
+  text-align:left;
+}
+
+.hits {
+  width: 50%;
+  text-align: right;
+}
+
+.aside-image-txt-black {
+  color: #000;
+  text-shadow: 2px 2px 0 #fff,
+              -2px -2px 0 #fff;
+  left: 10%;
 }
