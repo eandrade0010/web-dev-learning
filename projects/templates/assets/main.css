@@ -101,7 +101,9 @@ h1 {
   display: inline-block;
 }
 
-.fa:hover {
+.fa:hover,
+.action-btn:hover {
+  cursor: pointer;
   background: #fff;
   color: #000;
 }
@@ -110,13 +112,9 @@ h1 {
   clear: both;
 }
 
-.image-container {
-  position: relative;
-}
-
 .image-container img {
+  position: relative
   width: 100%;
-  /* position: relative; */
 }
 
 .news {
@@ -190,7 +188,6 @@ input {
   font-size: 12px;
 }
 
-
 /* Main Content */
 .content-container {
   margin-top: 30px;
@@ -218,7 +215,7 @@ input {
 .keywords {
   display: inline-block;
   color: rgba(0, 0, 0, 0.5);
-  border: solid 1px rgba(0, 0, 0, 0.5);
+  border: solid 1px rgba(0, 0, 0, 0.1);
   border-radius: 3px;
   letter-spacing: 1px;
   padding: 5px 5px;
@@ -254,6 +251,29 @@ input {
 .blog img {
   width: 100%;
 }
+
+.blog {
+  padding-bottom: 50px;
+  border-bottom: solid 5px rgba(200, 200, 200, 0.3);
+}
+
+/* COLLAGE */
+
+.collage {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 3px;
+  height: 500px;
+}
+
+
+
 
 .search input {
   width: 75%;
