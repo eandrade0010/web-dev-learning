@@ -222,7 +222,7 @@ input {
   margin: 10px 10px;
 }
 
-.blog a {
+.blog-link {
   display: block;
   width: 125px;
   margin: 0 auto;
@@ -254,13 +254,66 @@ input {
 
 .blog {
   padding-bottom: 50px;
-  border-bottom: solid 5px rgba(200, 200, 200, 0.3);
+  margin-bottom: 10px;
 }
+
+.blog-nav {
+  width: 90%;
+  margin: 0 auto;
+  border: solid 1px #000; */
+}
+
+.blog footer {
+  margin: 0 auto;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: solid 5px rgba(200, 200, 200, 0.3);
+  width: 90%;
+  height: 20px;
+}
+
+.blog footer a:hover {
+  background-color: inherit;
+  color: blue;
+}
+
+.blog footer div {
+  height: 40px;
+}
+
+.col-1-2 {
+  display: inline-block;
+  width: 50%;
+}
+
+.col-1-2:first-of-type {
+  text-align: left;
+}
+
+.col-1-2:last-of-type {
+  text-align: right;
+}
+
+.blog-stats li {
+  display: inline-block;
+  padding: 0 5px;
+  line-height: 40px;
+}
+
+.blog-fa {
+  height: auto;
+  border: 0;
+  padding: 5px 5px;
+  margin: 0 10px;
+  color: #000;
+  background-color: inherit;
+}
+
 
 /* COLLAGE */
 
 .collage {
-  margin-top: 50px;
+  margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
 }
