@@ -25,3 +25,6 @@ Spend at least one month (October 2018) on the list of projects and then reevalu
 - [ ]  Project: [100 Days of CSS](https://100dayscss.com/) - pick 1 of the 100 and implement it
 - [ ]  Project: Select an API from [Todd Motto's API List](https://github.com/toddmotto/public-apis) and build a frontend-only application powered by data fetched from the API you chose.  
 - [ ]  Project: Clone [this](https://blackrockdigital.github.io/startbootstrap-clean-blog/) blog template - note that there are multiple pages  
+
+## Help
+For API stuff: investigate the following (https://hackernoon.com/a-beginners-guide-to-progressive-web-apps-the-frontend-web-424b6d697e35)
