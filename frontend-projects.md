@@ -3,6 +3,13 @@ A list of projects for front-end web development. Goal is to try to do every sin
 
 Spend at least one month (October 2018) on the list of projects and then reevaluate progress
 
+## Current Project
+Working on front-end application for API. Pick from the following
+- [to-do-list](https://developer.todoist.com/sync/v7/)
+- [stock data](https://www.alphavantage.co/)
+- [books](https://www.goodreads.com/api)
+- [instagram](https://www.instagram.com/developer/)
+
 ## Projects
 - [X]  Project: [100 Days of CSS](https://100dayscss.com/) - pick 1 of the 100 and implement it
 - [X]  Project: Pick a template from [here](https://freebiesbug.com/psd-freebies/website-template/), [here](http://www.free-css.com/free-css-templates) or [here](http://www.os-templates.com/free-website-templates) and implement the frontend of a website with it as your inspiration (do not use its assets)
