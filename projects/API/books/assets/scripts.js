@@ -13,30 +13,27 @@ request.onload = function() {
       const card = document.createElement('div');
       card.setAttribute('class', 'card');
 
-      const col13 = document.createElement('div');
-      col13.setAttribute('class', 'col-1-3');
-
-      const col23 = document.createElement('div');
-      col23.setAttribute('class', 'col-2-3');
+      const header = document.createElement('div');
+      header.setAttribute('class', 'header');
 
       const h1 = document.createElement('h1');
       h1.textContent = book.title;
 
+      const h3 = document.createElement('h3');
+      h3.textContent = 'Author: ' + book.author;
+
       const p = document.createElement('p');
-      if (book.description) {
-        book.description = book.description.substring(0,300);
-      };
+
       p.textContent = book.description
       p.setAttribute('class', 'col-2-3')
 
 
       container.appendChild(card);
 
-      card.appendChild(col13);
-      card.appendChild(col23);
-
-      col13.appendChild(h1);
-      col23.appendChild(p);
+      header.appendChild(h1);
+      header.appendChild(h3);
+      card.appendChild(header);
+      card.appendChild(p);
 
     });
   } else {
