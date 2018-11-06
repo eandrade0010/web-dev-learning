@@ -6,6 +6,11 @@
          box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 body {
   font-family: Open Sans, Helvetica, Arial, sans-serif;
   color: #4b7080;
@@ -64,8 +69,15 @@ ul {
 
 li {
   margin: 22px auto;
+  position: relative;
 }
 
+.fas,
 .far {
-  float: right;
+  position: absolute;
+  right: 0;
+}
+
+.fa-circle {
+  visibility: visible;
 }
