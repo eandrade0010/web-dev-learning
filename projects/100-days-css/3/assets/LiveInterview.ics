@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+METHOD:REQUEST
+PRODID:-//DDay.iCal//NONSGML ddaysoftware.com//EN
+BEGIN:VEVENT
+CREATED:20181108T165230Z
+DESCRIPTION:Live Interview Position Name: Raytheon SAS Talent Acquisition  Moderator: Ben(benjamin.turk@raytheon.com)  Meeting Link: https://isthrive.co/#/Hire/Live/candidate/Landing/125a9f1acc6d475ba432f05a3967b6b8b5a1e310da7e463298fe19626494fbdd
+DTSTART:20181108T180000Z
+DTEND:20181108T190000Z
+LOCATION:Remote
+ORGANIZER:no-reply@interviewstream.com
+SEQUENCE:0
+SUMMARY:Live Interview Appointment
+UID:20181108T165230Z-HLI242412@isthrive.co
+END:VEVENT
+END:VCALENDAR
