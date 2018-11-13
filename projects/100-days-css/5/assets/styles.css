@@ -19,39 +19,36 @@
 .container {
   width: 130px;
   height: 220px;
-  /* background-color: red; */
   position: relative;
-  /* border: solid 1px red; */
 }
 
 .bulb {
   margin: 0 auto;
-  width: 130px;
-  height: 130px;
+  width: 100%;
+  height: 0;
+  padding-top: 100%;
   border-radius: 100%;
   background-color: #fff35c;
 }
 
 .stem {
-  margin: 0 auto;
-  width: 100px;
+  width: 90px;
   height: 95px;
   position: absolute;
-  top: calc(130/2*1px);
-  left: 15px;
+  top: 65px;
+  left: 20px;
   background-color: #fff35c;
 }
 
-.outer-cut-container {
+.right-cut-container {
   position: absolute;
-  top: 50%;
-  right: -40%;
-  /* border: solid 1px red; */
+  left: 95px;
+  top: 80px;
 }
 
 .cut-container {
-  width: 80px;
-  height: 80px;
+  width: 40px;
+  height: 140px;
   position: relative;
 }
 
@@ -64,25 +61,87 @@
 
 .angle-cut {
   transform-origin: bottom right;
-  /* border: solid 1px black; */
-  transform: rotate(45deg);
+  transform: rotate(28deg);
 }
 
 .arc-cut {
-  /* border: solid 1px black; */
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  background-color: #404556;
+  position: absolute;
+  top: 30px;
+}
+
+.left-cut-container {
+  position: absolute;
+  right: 95px;
+  top: 80px;
+}
+
+.left-cut-container .angle-cut {
+  transform-origin: bottom left;
+  transform: rotate(-28deg);
+}
+
+.left-cut-container .arc-cut {
+  right: 0;
+
+}
+
+.bar-container {
+  margin: 0 auto;
+  width: 55px;
+  margin-top: 40px;
+}
+
+.bar {
+  width: 100%;
+  height: 10px;
+  background-color: #e5e5e5;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.trapezoid {
+  margin: 0 auto;
+  height: 20px;
+  width: 50px;
+  background-color: #e5e5e5;
+  position: relative;
+}
+
+.trapezoid #left-cut {
+  position: absolute;
+  right: -15px;
+  bottom: 0;
+  height: 200%;
+  width: 50%;
+  transform-origin: bottom left;
+  transform: rotate(20deg);
+  background-color: #404556;
+}
+
+.trapezoid #right-cut {
+  position: absolute;
+  left: -15px;
+  bottom: 0;
+  height: 200%;
+  width: 50%;
+  transform-origin: bottom right;
+  transform: rotate(-20deg);
+  background-color: #404556;
+}
+
+.glow {
+  position: absolute;
+  top: -25%;
+  left: -50%;
   width: 200%;
   height: 0;
   padding-top: 200%;
   border-radius: 100%;
-  background-color: #404556;
-  position: absolute;
-  top: -50%;
-}
-
-.flip-container {
-  transform: scaleX(-1);
-  filter: FlipH;
-  position: absolute;
-  top: 50%;
-  left: -40%;
+  box-shadow: 0 0 200px 100px rgba(255, 243, 92, 0.2),
+              inset 0 0 100px 100px rgba(255, 243, 92,0.2);
+  z-index: 1;
 }
