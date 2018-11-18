@@ -32,7 +32,8 @@ function rotateSquare(element, delayMultiple, minAngle, maxAngle) {
             $square.css({
               transform: "rotate("+now+"deg)"
             });
-          }
+          },
+          // complete: rotateSquare(element, delayMultiple, minAngle, maxAngle)
         });
     }
   });

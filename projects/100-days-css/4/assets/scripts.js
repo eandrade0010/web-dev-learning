@@ -1,4 +1,5 @@
 $( document ).ready(function() {
+  var count = 1;
     $( ".outer-container" ).click(function() {
       count++;
       $ (".outer-container").animate({
@@ -6,8 +7,7 @@ $( document ).ready(function() {
         height: "+=300%"
       }, 1000, function() {
         $(this).removeAttr('style');
-        if (count%2==0) {
-          console.log("hello");
+        if (count%2==0) {;
           $(".frame, .cuts, .circle").css("background-color", "#fff");
           $(".main").css("background-color", "#995ab4");
         }

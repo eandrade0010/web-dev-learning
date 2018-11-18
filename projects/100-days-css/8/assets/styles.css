@@ -1,0 +1,45 @@
+body {
+}
+
+.frame {
+  background-color: #343e48;
+}
+
+.container {
+  width: 100px;
+  height: 80px;
+  text-align: center;
+}
+
+#timer {
+  height: 40px;
+  width: 100%;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.5);
+  text-align: center;
+  color: #498ab7;
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 28px;
+  line-height: 40px;
+  font-weight: 300;
+  letter-spacing: 0px;
+}
+
+
+
+#pause {
+  margin-top: 20px;
+  height: 20px;
+  vertical-align: bottom;
+}
+.vertical-bar {
+  background-color: #fff;
+  display: inline-block;
+  margin: 0 3px;
+}
+
+#pause:hover {
+  cursor: pointer;
+
+}
