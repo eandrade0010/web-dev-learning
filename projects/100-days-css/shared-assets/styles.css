@@ -17,8 +17,14 @@
   justify-content: center;
 }
 
+.centered-circle {
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .vertical-bar {
   height: 100%;
   width: 5%;
-
 }
