@@ -8,6 +8,7 @@
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 body {
@@ -15,6 +16,9 @@ body {
 }
 
 
+h2 {
+  text-transform: uppercase;
+}
 
 /* Header */
 
@@ -24,13 +28,13 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 100px;
 }
 
 
 .primary-header {
   width: 100%;
   margin: 0 auto;
+  margin-bottom: 80px;
 }
 
 
@@ -95,19 +99,76 @@ header {
   width: 75%;
 }
 
-.container {
-  margin: 0 auto;
-  margin-top: 60px;
-  height: 500px;
-  width: 80%;
+/* ==============================
+SIDE NAV
+============================== */
 
-  border: solid 1px pink;
+.side-nav {
+  width: 15%;
+  height: 650px;
+  /* border: solid 1px white; */
+  float: left;
+  margin-right: 0;
   position: relative;
-  overflow: hidden;
+}
+
+
+
+.side-nav ol {
+  margin-top: 0;
+  margin-left: 10%;
+  padding-left: 0;
+  counter-reset: ol-item;
+}
+
+.side-nav li {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  list-style-type: none;
+  counter-increment: ol-item;
+  margin: 0 0;
+  height: 130px;
+}
+
+.side-nav li span {
+  padding-left: 30%;
+  width: 100%;
+}
+
+.side-nav li:before {
+  content: "0" counter(ol-item) "";
+}
+
+.side-nav div {
+  height: 100%;
+  width: 2px;
+  position: absolute;
+  top: 0;
+  left: 35%;
+  background-color: rgba(142,142,142, 0.3);
+
+
+}
+
+
+/* ========================================
+MAIN CONTAINER
+======================================== */
+
+.outer-container {
+  margin-left: 5%;
+  float: right;
+  width: 80%;
+}
+
+.container {
+  height: 500px;
+  position: relative;
 }
 
 .container #home-img {
-  max-width: 40%;
+  width: 40%;
   max-height: 100%;
   position: absolute;
   left: 60%;
@@ -118,14 +179,34 @@ header {
   color: #fff;
   font-family: 'Titillium Web', sans-serif;
   font-size: 72px;
-  /* font-weight: 900; */
   position: absolute;
   line-height: 60px;
 }
 
 #home-caption {
-  width: 400px;
+  width: 20%;
   top: 10%;
   left: 10%;
 
+}
+
+/* ==================================
+COLUMN CONTAINER
+================================== */
+
+.columns {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  color: rgba(142,142,142, 0.5);;
+}
+
+
+.columns a {
+  width: 30%;
+  margin: 2%;
+}
+
+.columns a:hover {
+  color: #fff;
 }
